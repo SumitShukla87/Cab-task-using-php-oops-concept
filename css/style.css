@@ -325,3 +325,7 @@ footer {
   background-color: rgb(214, 81, 57);
   color: whitesmoke;
 }
+.active a:hover {
+  background-color: whitesmoke;
+  color: #111;
+}
