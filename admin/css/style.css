@@ -171,8 +171,8 @@ header{
   width: 30%;
 }
 
-/*****D*/
-.dropdown-content1 {
+/* ****D*/
+.dropdown1-content1 {
   display: none;
   position: absolute;  
   background-color: #333;
@@ -180,7 +180,7 @@ header{
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
 }
-.dropdown1:hover .dropdown-content1 {
+.dropdown1:hover .dropdown1-content1 {
   display: block;
 }
 .sidebar .dropbtn1 {
@@ -194,7 +194,7 @@ header{
   overflow: hidden;
   height: 100%;
 }
-.dropdown-content1 a {
+.dropdown1-content1 a {
   display: block;
   color: white;
   text-align: center;
@@ -202,7 +202,7 @@ header{
   text-decoration: none;
 }
 
-.dropdown-content1 a:hover{
+.dropdown1-content1 a:hover{
   background-color: rgb(194, 175, 7);
   color: black;
-}
+} 

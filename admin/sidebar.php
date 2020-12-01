@@ -8,7 +8,7 @@ require "header.php";
                     <div class="dropdown1">
                             <button class="dropbtn1">Users
                             </button>
-                            <div class="dropdown-content1">
+                            <div class="dropdown1-content1">
                             <a href="viewrequest.php">Pending User Requests</a>
                             <a href="alluser.php">All Users</a>
                             </div>
@@ -16,7 +16,7 @@ require "header.php";
                         <div class="dropdown1">
                             <button class="dropbtn1">Rides
                             </button>
-                            <div class="dropdown-content1">
+                            <div class="dropdown1-content1">
                             <a href="riderequest.php">Pending Rides</a>
                             <a href="completedrides.php">Completed rides</a>
                             <a href="cancelledride.php">Cancelled rides</a>
@@ -26,7 +26,7 @@ require "header.php";
                         <div class="dropdown1">
                             <button class="dropbtn1">Location
                             </button>
-                            <div class="dropdown-content1">
+                            <div class="dropdown1-content1">
                             <a href="addlocation.php">Add Location</a>
                             <a href="viewlocation.php">View Location</a>
                             </div>
