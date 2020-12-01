@@ -57,7 +57,7 @@ class Users
                 }
             }
         } else {
-            echo "Login failed!!!!!!!!!!!";
+            echo "<script>alert('Please Enter valid Login Details!!!');</script>";
         }
     }
     /**
