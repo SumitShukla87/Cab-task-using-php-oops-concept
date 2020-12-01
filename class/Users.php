@@ -44,15 +44,16 @@ class Users
                 if ($status == 0) {
                     echo"<script>alert('You are Not authorized yet by Admin Please wait till approval');</script>";
                 } else {
-                    $_SESSION['userdata'] = array('username'=>$row['user_name'],'uid'=>$row['user_id']);
                     if ($row['is_admin']==1) {
                         header('location:admin/dashboard.php');
                         $_SESSION['admin'] = $row['user_name'];
-                        echo"Login Successfully";
+
                     } elseif ($row['is_admin']==0) {
                         $_SESSION['userdata'] = array('username'=>$row['user_name'],'uid'=>$row['user_id']);
                         header('location:userdashboard.php');
-                        echo"Login Successfully";
+                    } else {
+                        unset($_SESSION);
+                        echo "<script>alert('Access denied');</script>";
                     }
                 }
             }
