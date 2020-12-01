@@ -21,7 +21,6 @@ if (isset($_SESSION['userdata'])) {?>
                                 <a href="pendingride.php">Pending Rides</a>
                                 <a href="completedride.php">Completed Rides</a>
                                 <a href="showcancel.php">Cancelled Rides</a>
-                                <a href="riderequest.php">Previous Ride Request</a>
                                 <a href="viewrides.php">All rides</a>
                             </div>
                          </div>

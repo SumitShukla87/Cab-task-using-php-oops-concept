@@ -28,6 +28,7 @@ if (!isset($_SESSION['userdata'])) {
         <th>Status</th>
         <th>Booking-Date</th>
         <th>Cab-Type</th>
+        <th>Cancel Ride</th></tr>
 
 
         <?php foreach ($details as $key=> $value) { ?>
@@ -75,7 +76,8 @@ if (!isset($_SESSION['userdata'])) {
                         
                         ?>
                    </td>
-                   
+                   <td><a href="cancelride.php?id=<?php echo $value['ride_id']?>" class="delete-css">Cancel Ride</a></td>
+                                   
                </tr>
         <?php }
 }        ?>
