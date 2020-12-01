@@ -1,0 +1,172 @@
+  body{
+    margin:0 ;
+    padding: 0;
+  }
+  #wrapper{
+    margin-left: 200px;
+    padding: 1px 16px;
+  } 
+  #admin-bg{
+    background-color: aqua;
+  }
+  #request{
+    text-align: center;
+   }
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 16px;
+  }
+  
+  tr:nth-child(odd) {
+    background-color: #f2f2f2 !important;
+  }
+  .approve-css{
+    padding: 2%;
+    background-color: red;
+    text-decoration: none;
+    color: wheat;
+  }
+  .delete-css{
+    padding: 2%;
+    background-color: green;
+    text-decoration: none;
+    color: wheat
+  }
+  /* side bar css*/
+
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  overflow: hidden;
+  position: fixed;
+  background-color: #333;
+  height: 100%;
+  overflow: auto;
+}
+
+.sidebar a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.sidebar a:hover{
+  background-color: rgb(194, 175, 7);
+  color: black;
+}
+/* Logo css*/
+.logo-left{
+  float: left;
+  margin-left: 16%;
+
+}
+header{
+  overflow: hidden;
+}
+#logo-right{
+  float: right;
+  margin-right: 20px;
+  text-align: right;
+}
+.tiledemo{
+  display: inline;
+  overflow: hidden;
+  color: rgb(37, 33, 33);
+}
+.tile1{
+  text-align: center;
+  margin-top: 5%;
+  padding: 1%;
+   width: 25%;
+   height: 20%;
+   float: left;
+   margin-left: 5%;
+   background-color: rgb(115, 209, 39);
+ }
+ .tile2{
+  text-align: center;
+  margin-top: 5%;
+  padding: 1%;
+  position: relative;
+   width: 25%;
+   height: 20%;
+   float: left;
+   margin-left: 5%;
+   background-color: rgba(255, 255, 0, 0.932);
+ }
+ .tile3{
+  text-align: center;
+  margin-top: 5%;
+  padding: 1%;
+  position: relative;
+   width: 25%;
+   height: 20%;
+   float: left;
+   margin-left: 5%;
+   background-color: rgba(255, 166, 0, 0.842);
+ }
+ .tiledemo a{
+  color: black;
+  display: block;
+  width: 95%;
+   text-decoration: none;
+ }
+ .class-a{
+
+   box-shadow: 5px 5px;
+   color: black;
+   background-color: burlywood;
+   background-blend-mode: lighten;
+   opacity: 0.7;
+   display: block;
+   width: 95%;
+    text-decoration: none;
+  }
+
+ li.dropdown {
+  display: inline-block;
+}
+.dropdown a{
+  text-decoration: none;
+  display: block;
+  min-width: 160px;
+  padding: 5%;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+#invoice {
+  margin-left: 20%;
+  margin-top: 10%;
+  width: 30%;
+}

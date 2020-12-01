@@ -1,0 +1,330 @@
+body{
+  margin: 0;
+  padding: 0;
+}
+.header{
+    width: 100%;
+    height: 250px;  
+  }
+#index-table-css{   
+    margin-left: 25%;
+    width: 700px;
+    border:5px solid rgb(255, 196, 0); 
+  }  
+  #index-table-css td{
+    text-align: center;
+    padding:15px;
+  }
+  #index-table-css tr{
+    background:linear-gradient(to right,rgba(0, 0, 0, 0.61),rgba(240, 207, 58, 0.726));  
+  }
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 16px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }  
+  input[type="text"] ,input[type="password"] , select{
+    width: 50%;
+    border:2px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: gainsboro;
+  } 
+
+  input[type="submit"]{
+    text-decoration: none;
+    padding: 5px;
+    color: black;
+    background-color: cornsilk;
+    width: 20%;
+    border: 1px solid black;
+  }
+#signup-a-css{
+    color: black;
+    background-color: cornsilk;
+    text-decoration: none;
+    padding: 3px;
+    width: 20%;
+    border: 1px solid black;
+  }
+  #index-marquee-css{
+    color: rgb(167, 165, 26);
+  }
+  #reg-form{
+    background-color: black;
+    margin-left: 150px;
+    width: 30%;
+    color: rgb(255, 123, 0);
+    text-align: center;
+  }
+   #reg-form td{ 
+    background-color: black;   
+    text-align: center;
+  }
+  #reg-form p {
+      margin-left: 10px;    
+  }
+  #reg-form .signup-elements{
+      margin-left: 10px;
+  }
+  #reg-form .signup-elements-submit{
+ 
+    color: black;
+    background-color: rgb(255, 123, 0);
+    width: 100%;
+}
+#signup-elements-a{
+    
+    width: 100%;
+    display: block;
+    text-decoration: none;
+    color: black;
+    background-color: rgb(255, 123, 0);
+}
+#bg-signup{
+  background-image: url("../images/111.jpg");
+  background-size: cover;
+}
+
+.logo-left{
+  float: left;
+  margin-left: 45px;
+  width: 400px;
+}
+#logo-right{
+  float: right;
+  margin-top: 20px;
+  margin-right: 20px;
+  text-align: right;
+}
+.nav-right{
+  float: right;
+  margin-top: 50px;
+  margin-right: 20px;
+}
+#main-logo{
+  overflow: hidden;
+}
+#book-form{
+  background-color: black;
+  width: 300px;
+  margin-left: 150px;
+  color: rgb(255, 123, 0);
+  text-align: center;
+}
+#book-form label{
+  padding: 15px;
+}
+.approve-css{
+  padding: 1%;
+  background-color: red;
+  text-decoration: none;
+  color: wheat;
+}
+select{
+  -webkit-appearance:none ;
+  appearance: none;
+  width: 60%;
+}
+
+#bg-index #p1{
+  background-color:rgb(255, 123, 0) ;
+  color: black;
+  padding-top: 5px ;
+  text-align: center;
+}
+
+#bg-index .calc{
+  background-color:rgb(255, 123, 0) ;
+  color: black;
+  width: 100%;
+  font-weight: bold;
+}
+#bg-index{
+  background-image: url("../images/111.jpg");
+  background-size: cover;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: #111;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+li a:hover { 
+  background-color: rgb(214, 81, 57);
+  color: whitesmoke;
+}
+#head{
+  overflow: hidden; 
+}
+li.dropdown {
+  display: inline-block;
+}
+.dropdown a{
+  text-decoration: none;
+  display: block;
+  min-width: 160px;
+  padding: 5%;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;
+color: rgb(255, 145, 0);}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/**** css of dropdoewn nav bar*/
+.dropdown1 {
+  float: left;
+  overflow: hidden;
+}
+
+/* Dropdown button */
+.dropdown1 .dropbtn1 {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: rgb(7, 6, 6);
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+}
+.dropdown1 .dropbtn {
+  border: none;
+  padding: 14px 16px;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+  background-color: red;
+  text-decoration: none;
+  color: wheat;
+}
+
+
+/* Dropdown content (hidden by default) */
+.dropdown-content1 {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content1 a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content1 a:hover {
+  background-color: rgb(214, 81, 57);
+  color: whitesmoke;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown1:hover .dropdown-content1 {
+  display: block;
+}
+.delete-css{
+  padding: 2%;
+  background-color: green;
+  text-decoration: none;
+  color: wheat
+}
+
+
+.icon{
+  font-size:30px;
+}
+footer {
+  margin-top: 200px;
+
+}
+.footer-left{
+  float: left;
+  margin-left: 15%;
+}
+.right-footer{
+  float: right;
+  margin-right: 10%;
+}
+.right-footer a{
+  text-decoration: none;
+  color: chocolate;
+}
+/*Css for the Card of user dashboard*/
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 30%;
+  margin-left: 10%;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+  padding: 2px 16px;
+}
+.dashuser{
+  margin-left: 30%;
+
+}
+.dashuser a{
+  text-decoration: none;
+  color: #111;
+}
+.tb-dash{
+  margin-top: 5%;
+}
+.active {
+  background-color: rgb(214, 81, 57);
+  color: whitesmoke;
+}
