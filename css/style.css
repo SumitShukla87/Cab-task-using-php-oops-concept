@@ -277,14 +277,11 @@ color: rgb(255, 145, 0);}
   text-decoration: none;
   color: wheat
 }
-
-
 .icon{
   font-size:30px;
 }
 footer {
-  margin-top: 200px;
-
+  margin-top: 150px;
 }
 .footer-left{
   float: left;

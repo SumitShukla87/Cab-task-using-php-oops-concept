@@ -204,7 +204,7 @@ VALUES ('".$date."','".$pickup."','".$drop."','".$cab."','".$distance."','".$lug
     public function cancel_ride_user($conn)
     {
         $a=array();
-        $sql= "SELECT * FROM `tbl_user` INNER JOIN `tbl_ride` ON `tbl_user`.`user_id` = `tbl_ride`.`customer_user_id` ORDER BY $name ASC";
+        $sql= "SELECT * FROM `tbl_user` INNER JOIN `tbl_ride` ON `tbl_user`.`user_id` = `tbl_ride`.`customer_user_id`";
         $result =$conn->query($sql);
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {

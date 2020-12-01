@@ -28,7 +28,9 @@ if (isset($_POST['submit'])) {
    
     $login_data = new Users();
     $login_data->login($username, $password, $db->conn);
-    $id = $_SESSION['userdata']['uid'];
+    if (isset($_SESSION['userdata'])) {
+        $id = $_SESSION['userdata']['uid'];
+    }
 
     $ridedata = new Rides();
     if (isset($_SESSION['book'])) {
@@ -54,7 +56,13 @@ if (isset($_POST['submit'])) {
                                         <label for="username">User-Name:</label>
                                     </td>
                                     <td>
-                                        <input type="text" name="uname" placeholder="Enter User Name Here" value="<?php echo $_COOKIE['username'];?>"required>
+                                        <?php
+                                            $cookie_name = '';
+                                            if(isset($_COOKIE['username'])) {
+                                                $cookie_name = $_COOKIE['username'];
+                                            } 
+                                        ?>
+                                        <input type="text" name="uname" placeholder="Enter User Name Here" value="<?php echo $cookie_name;?>"required>
                                     </td>
                                 </tr>
                                 <tr>
