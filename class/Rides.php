@@ -67,7 +67,7 @@ class Rides
 VALUES ('".$date."','".$pickup."','".$drop."','".$cab."','".$distance."','".$luggage."','".$fare."','".$status."','".$id."')";
         if ($conn->query($sql) === true) {
             echo "<script>alert('Details Inserted Successfully!!! Please Wait for the Admin Approval')</script>";
-            header("location:riderequest.php");
+            header("location:pendingride.php");
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
@@ -110,7 +110,7 @@ VALUES ('".$date."','".$pickup."','".$drop."','".$cab."','".$distance."','".$lug
     {
         $sql = "UPDATE  `tbl_ride` SET `status`='".$accept."' where `ride_id`='".$id."'";
         if ($conn->query($sql) === true) {
-            header("location:riderequest.php");
+            header("location:pendingride.php");
         } else {
             echo $conn->error;
         }
