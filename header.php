@@ -1,4 +1,15 @@
 <?php
+/**
+ *  File Doc Comment
+ *
+ * PHP version 7
+ *
+ * @category Header_File
+ * @package  Cab-rides
+ * @author   Sumit <sumitshukla@cedcoss.com>
+ * @license  Personal use License
+ * @link     https://localhost/
+ */
     session_start();
 if (isset($_SESSION['userdata'])) {?>
      <div class="nav-right">
