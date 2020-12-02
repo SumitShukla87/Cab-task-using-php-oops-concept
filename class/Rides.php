@@ -4,24 +4,20 @@ class Rides
     /**
     * Method to show ride details of user
     */
-    public function showride($id,$filterby ,$conn)
+    public function showride($id, $filterby, $conn)
     {
         $a=array();
         if ($filterby == "week") {
             // $sql = "SELECT * from tbl_ride WHERE `customer_user_id`='".$id."' AND `ride_date` BETWEEN curdate() - INTERVAL 1 MONTH AND curdate()";
             $sql = "SELECT * from `tbl_ride` Where `customer_user_id`='".$id."' AND `ride_date`> DATE_SUB(curdate(),INTERVAL 1 WEEK)";
-           
-        } else if($filterby == "month") {
-            $sql = "SELECT * from `tbl_ride` Where `customer_user_id`='".$id."' AND `ride_date`> DATE_SUB(curdate(),INTERVAL 1 MONTH)"; 
-
-        } else if ($filterby == "luggage") {
-            $sql = "SELECT * from `tbl_ride` Where `customer_user_id`='".$id."' ORDER BY CAST(`luggage` AS UNSIGNED ) ASC"; 
-
+        } elseif ($filterby == "month") {
+            $sql = "SELECT * from `tbl_ride` Where `customer_user_id`='".$id."' AND `ride_date`> DATE_SUB(curdate(),INTERVAL 1 MONTH)";
+        } elseif ($filterby == "luggage") {
+            $sql = "SELECT * from `tbl_ride` Where `customer_user_id`='".$id."' ORDER BY CAST(`luggage` AS UNSIGNED ) ASC";
         } elseif ($filterby == "distance") {
-            $sql = "SELECT * from `tbl_ride` Where `customer_user_id`='".$id."' ORDER BY CAST(`total_distance` AS UNSIGNED ) ASC"; 
-
+            $sql = "SELECT * from `tbl_ride` Where `customer_user_id`='".$id."' ORDER BY CAST(`total_distance` AS UNSIGNED ) ASC";
         } else {
-            $sql = "SELECT * from `tbl_ride` Where `customer_user_id`='".$id."'"; 
+            $sql = "SELECT * from `tbl_ride` Where `customer_user_id`='".$id."'";
         }
     
         
@@ -331,9 +327,9 @@ VALUES ('".$date."','".$pickup."','".$drop."','".$cab."','".$distance."','".$lug
         }
     }
 
-/**
-* Method to show Cancelled ride details of user
-*/
+    /**
+    * Method to show Cancelled ride details of user
+    */
     public function viewcancel($id, $conn)
     {
         $a=array();
@@ -344,8 +340,29 @@ VALUES ('".$date."','".$pickup."','".$drop."','".$cab."','".$distance."','".$lug
         }
         return $a;
     }
-
-
-  
-
+    /**
+* Function to count the Pending Count Of User
+*/
+    public function pending_count_user($id, $conn)
+    {
+        $sql = "SELECT COUNT(*) AS RIDE FROM `tbl_ride` where `status` = 1 AND `customer_user_id`='".$id."' ";
+        $result =$conn->query($sql);
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            return $row;
+        }
+    }
+   
+    /**
+* Function to count the Pending Count Of User
+*/
+    public function complete_count_user($id, $conn)
+    {
+        $sql = "SELECT COUNT(*) AS RIDE FROM `tbl_ride` where `status` = 2 AND `customer_user_id`='".$id."' ";
+        $result =$conn->query($sql);
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            return $row;
+        }
+    }
 }

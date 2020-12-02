@@ -21,6 +21,17 @@ if (!isset($_SESSION['userdata'])) {
 } else {
     $name = $_SESSION['userdata']['username'];
 ?>
+    <?php
+    $id = $_SESSION['userdata']['uid'];
+
+    $db = new Dbcon();
+    $viewdata = new Rides();
+    $details= $viewdata->userrequest($id, $db->conn);
+    $data = $viewdata->expanse($id, $db->conn);
+    $pending_ride = $viewdata->pending_count_user($id, $db->conn);
+    $completed = $viewdata->complete_count_user($id, $db->conn);
+?>
+<div class="main-user">
     <div class="dashuser">
         <a href="viewuser.php">
             <div class="card">
@@ -31,15 +42,37 @@ if (!isset($_SESSION['userdata'])) {
                     <a href="viewuser.php" class="delete-css">My Account</a>
                 </div>
             </div>
-        </a>    
+        </a>   
     </div>
-    <?php
-    $id = $_SESSION['userdata']['uid'];
+    <div class="tiledemo">
+                    <a href="viewexp.php">
+                    <div class="tile1">
+                        All Expanses
+                        <h1><?php    echo $data['ex']; ?>  rs.</h1>
+                            <a href="viewexp.php" class="class-a">More Info</a>
+                    </div>
 
-    $db = new Dbcon();
-    $viewdata = new Rides();
-    $details= $viewdata->userrequest($id, $db->conn);
-?>
+                    </a>
+                    
+                    <a href="pendingride.php">
+                        <div class="tile1">
+                            Pending Rides
+                            <h1><?php echo $pending_ride['RIDE'];?></h1>
+                            <a href="pendingride.php" class="class-a">More Info</a>                    
+                        </div>
+                    </a>
+                    <a href="completedride.php">
+                        <div class="tile1">
+
+                            Completed Rides
+                            <h1><?php echo $completed['RIDE'];?></h1>
+                            <a href="completedride.php" class="class-a">More Info</a>
+                        </div>
+                    </a>    
+                </div> 
+</div>      
+</div>      
+
     <table class="tb-dash">
         <tr>
             <td colspan="8">  <h2>-:-Ride Request of <?php echo $name?>-:-</h2></td>
