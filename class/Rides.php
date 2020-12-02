@@ -110,7 +110,7 @@ VALUES ('".$date."','".$pickup."','".$drop."','".$cab."','".$distance."','".$lug
     {
         $sql = "UPDATE  `tbl_ride` SET `status`='".$accept."' where `ride_id`='".$id."'";
         if ($conn->query($sql) === true) {
-            header("location:pendingride.php");
+            header("location:riderequest.php");
         } else {
             echo $conn->error;
         }
@@ -235,7 +235,7 @@ VALUES ('".$date."','".$pickup."','".$drop."','".$cab."','".$distance."','".$lug
     public function spent($id, $name, $conn)
     {
         $a=array();
-        $sql = "SELECT * from `tbl_ride` WHERE `customer_user_id`='".$id."' AND `status` = 2 ORDER BY $name ASC " ;
+        $sql = "SELECT * from `tbl_ride` WHERE `customer_user_id`='".$id."' AND `status` = 2  ORDER BY CAST($name AS UNSIGNED ) ASC";
         $result =$conn->query($sql);
         while ($row = $result->fetch_assoc()) {
             array_push($a, $row);
@@ -346,6 +346,6 @@ VALUES ('".$date."','".$pickup."','".$drop."','".$cab."','".$distance."','".$lug
     }
 
 
-
+  
 
 }

@@ -31,7 +31,7 @@ if (!isset($_SESSION['userdata'])) {
             } else {
                 $name ='ride_id';
             }
-    $details = $ride->spent($id, $name, $db->conn); ?>
+            $details = $ride->spent($id, $name, $db->conn); ?>
     <form action="" method="GET">
         <table class='view-table-css'>
         <tr>
