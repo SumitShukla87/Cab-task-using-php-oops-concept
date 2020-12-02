@@ -28,7 +28,7 @@ class Users
         if ($conn->query($sql) === true) {
             echo "<script>alert('Details Inserted Successfully!!! Please Wait for the Admin Approval')</script>";
         } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
+            echo'<script>alert("'.$conn->error.'")</script>';
         }
     }
     /**
