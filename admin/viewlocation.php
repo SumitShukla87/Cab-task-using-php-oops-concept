@@ -58,7 +58,6 @@ $locations =$data->viewlocation($name, $db->conn);
                     <li class="dropdown">
                         <a href="viewlocation.php?value=`id`"class="dropbtn approve-css">Sort Data</a>
                         <div class="dropdown-content">
-                            <a  href="viewlocation.php?value=`name`" class="dropdown-content1">By Location Name</a>
                             <a  href="viewlocation.php?value=`distance`" class="dropdown-content1">By Distance</a>
                             <a  href="viewlocation.php?value=`is_available`" class="dropdown-content1">By Status</a>
                         

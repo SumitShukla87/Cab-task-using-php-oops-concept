@@ -55,7 +55,7 @@
                 <td><input type="password" name="rnpas" placeholder="Enter Re password here"></td>
                 </tr>  
                 <tr>
-                <td colspan="2"><input type="submit" class="btn-submit" name="update" Value="Update"></td>
+                <td colspan="2"><input type="submit" class="btn-submit" name="update" Value="Change Password"></td>
           
                 </tr>
                 </table>

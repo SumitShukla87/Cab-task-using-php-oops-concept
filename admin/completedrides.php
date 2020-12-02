@@ -31,6 +31,7 @@ require "../class/Rides.php";
         <th>Luggage</th>
         <th>Date</th>
         <th>Status</th>
+        <th>See Invoice</th>
 <?php
 foreach ($details as $key =>$ride) {
     ?>
@@ -48,6 +49,9 @@ foreach ($details as $key =>$ride) {
 
                     }
                     ?>
+                    </td>
+                    <td>
+                        <a href="viewinvoice.php?id=<?php echo $ride['ride_id']?>" class="approve-css">Print Invoice</a>
                     </td>
                    
               </tr>

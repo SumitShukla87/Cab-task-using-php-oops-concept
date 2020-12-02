@@ -9,7 +9,6 @@ $db = new Dbcon();
 <?php
 if (isset($_POST['submit'])) {
     $ride = new Rides();
-
     $pickup = isset($_POST['pickup'])?$_POST['pickup']:'';
     $drop = isset($_POST['drop'])?$_POST['drop']:'';
     $date = date("Y-m-d");
@@ -91,7 +90,7 @@ if (isset($_POST['submit'])) {
         <p>
         </p>
         <label for="luggage">Luggage
-            <input type="text" class="lug" name="weight" id="luggage" placeholder="Enter Luggage Here In Kg">
+            <input type="text" class="lug" name="weight" id="luggage" placeholder="Enter Luggage Here In Kg" required>
         </label>
         <p>
         </p>

@@ -54,7 +54,7 @@ $viewdata = new Rides();
             <th>Luggage</th>
             <th>Status</th>
             <th>Delete Ride</th>
-            <th>See Invoice</th>
+            
         </tr>
 <?php
 foreach ($sort as $key =>$ride) {
@@ -82,9 +82,7 @@ foreach ($sort as $key =>$ride) {
                     <td>
                         <a href="deleteride.php?id=<?php echo $ride['ride_id']?>" class="delete-css">Delete Ride</a>
                     </td>
-                    <td>
-                        <a href="viewinvoice.php?id=<?php echo $ride['ride_id']?>" class="approve-css">Print Invoice</a>
-                    </td>
+                   
               </tr>
 <?php }
                 

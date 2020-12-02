@@ -13,13 +13,13 @@ $id = $_SESSION['userdata']['uid'];
 <?php if (!isset($_SESSION['userdata'])) {
         unset($_SESSION);
         header("location:login.php");
-    } else {?>
+} else {?>
           <table class='view-table-css'>
                     <?php
                     if (isset($_GET['filter'])) {
-                        $filterby = isset($_GET['filter'])?$_GET['filter']:'';
+                         $filterby = isset($_GET['filter'])?$_GET['filter']:'';
                     } else {
-                        $filterby ='';
+                         $filterby ='';
                     }
                    
                     $details =$ride->showride($id, $filterby, $db->conn);
@@ -28,7 +28,7 @@ $id = $_SESSION['userdata']['uid'];
           <form action="" method="GET">
                <table class='view-table-css'>
                <tr>
-                    <th colspan="8">
+                    <th colspan="9">
                          <ul>
                               <li>
                                    <div class="dropdown1">
@@ -43,7 +43,7 @@ $id = $_SESSION['userdata']['uid'];
                     </th>
                </tr>
                <tr>
-                    <th colspan="8">
+                    <th colspan="9">
                          <ul>
                               <li>
                                    <div class="dropdown1">
@@ -59,7 +59,7 @@ $id = $_SESSION['userdata']['uid'];
                </tr>
           </form> 
          <tr>
-              <th colspan="8"><h2>-:- All Rides  -:-</h2></th>
+              <th colspan="9"><h2>-:- All Rides  -:-</h2></th>
          </tr>
         <tr>
         <th>Ride-ID</th>
@@ -69,6 +69,7 @@ $id = $_SESSION['userdata']['uid'];
         <th>Luggage</th>
         <th>Ride Date</th>
         <th>Cab-Type</th>
+        <th>Fare</th>
         <th>Status</th>
 
 
@@ -107,6 +108,9 @@ $id = $_SESSION['userdata']['uid'];
                         
                         
                         ?>
+                   </td>
+                   <td>
+                        <?php echo $value['total_fare'];?>
                    </td>
                    <td>
                         <?php $status = $value['status'];

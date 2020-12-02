@@ -18,7 +18,7 @@ if (!isset($_SESSION['userdata'])) {
 
     <table>
          <tr>
-              <th colspan="8"><h2>-:- Completed Rides  -:-</h2></th>
+              <th colspan="9"><h2>-:- Completed Rides  -:-</h2></th>
          </tr>
         <tr>
         <th>Ride-ID</th>
@@ -28,6 +28,7 @@ if (!isset($_SESSION['userdata'])) {
         <th>Luggage</th>
         <th>Booking-Date</th>
         <th>Cab-Type</th>
+        <th>Fare</th>
         <th>Status</th>
 
 
@@ -66,6 +67,9 @@ if (!isset($_SESSION['userdata'])) {
                         
                         
                         ?>
+                   </td>
+                   <td>
+                    <?php echo $value['total_fare'];?>
                    </td>
                    <td>
                         <?php $status = $value['status'];

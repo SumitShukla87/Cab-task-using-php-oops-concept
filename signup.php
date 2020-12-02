@@ -18,7 +18,7 @@ $errors = array();
 
 <?php
 if (isset($_POST['register'])) {
-    $username = isset($_POST['uname'])?$_POST['uname']:'';
+    $username = strtolower(isset($_POST['uname'])?$_POST['uname']:'');
     $name = isset($_POST['fname'])?$_POST['fname']:'';
     $mobile = isset($_POST['mobile'])?$_POST['mobile']:'';
     $password = md5(isset($_POST['password'])?$_POST['password']:'');

@@ -10,6 +10,7 @@ require "header.php";
                             </button>
                             <div class="dropdown1-content1">
                             <a href="viewrequest.php">Pending User Requests</a>
+                            <a href="approveduser.php">Approved User</a>
                             <a href="alluser.php">All Users</a>
                             </div>
                     </div> 

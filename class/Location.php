@@ -55,7 +55,7 @@ class Location
     public function viewlocation($name,$conn)
     {
         $a=array();
-        $sql = "SELECT * from `tbl_location` ORDER BY $name";
+        $sql = "SELECT * from `tbl_location`ORDER BY CAST($name AS UNSIGNED ) ASC";
          
         $result =$conn->query($sql);
         if ($result->num_rows > 0) {

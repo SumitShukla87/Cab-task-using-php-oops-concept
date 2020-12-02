@@ -15,10 +15,10 @@ class Rides
             $sql = "SELECT * from `tbl_ride` Where `customer_user_id`='".$id."' AND `ride_date`> DATE_SUB(curdate(),INTERVAL 1 MONTH)"; 
 
         } else if ($filterby == "luggage") {
-            $sql = "SELECT * from `tbl_ride` Where `customer_user_id`='".$id."' ORDER BY `luggage` ASC "; 
+            $sql = "SELECT * from `tbl_ride` Where `customer_user_id`='".$id."' ORDER BY CAST(`luggage` AS UNSIGNED ) ASC"; 
 
         } elseif ($filterby == "distance") {
-            $sql = "SELECT * from `tbl_ride` Where `customer_user_id`='".$id."' ORDER BY `total_distance` ASC "; 
+            $sql = "SELECT * from `tbl_ride` Where `customer_user_id`='".$id."' ORDER BY CAST(`total_distance` AS UNSIGNED ) ASC"; 
 
         } else {
             $sql = "SELECT * from `tbl_ride` Where `customer_user_id`='".$id."'"; 
@@ -287,7 +287,7 @@ VALUES ('".$date."','".$pickup."','".$drop."','".$cab."','".$distance."','".$lug
     {
         $a=array();
 
-        $sql= "SELECT * FROM `tbl_user` INNER JOIN `tbl_ride` ON `tbl_user`.`user_id` = `tbl_ride`.`customer_user_id` ORDER BY $name ASC";
+        $sql= "SELECT * FROM `tbl_user` INNER JOIN `tbl_ride` ON `tbl_user`.`user_id` = `tbl_ride`.`customer_user_id` ORDER BY CAST($name AS UNSIGNED ) ASC";
         $result =$conn->query($sql);
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
@@ -313,10 +313,10 @@ VALUES ('".$date."','".$pickup."','".$drop."','".$cab."','".$distance."','".$lug
     /**
      * Function for user ride Cancellation
      */
-    public function userrequest($id,$conn)
+    public function userrequest($id, $conn)
     {
         $a=array();
-        $sql= "SELECT * FROM `tbl_user` INNER JOIN `tbl_ride` ON `tbl_user`.`user_id` = `tbl_ride`.`customer_user_id` WHERE `customer_user_id`='".$id."'";
+        $sql= "SELECT * FROM `tbl_ride` INNER JOIN `tbl_user` ON  `tbl_ride`.`customer_user_id` = `tbl_user`.`user_id` WHERE `customer_user_id`='".$id."'";
         $result =$conn->query($sql);
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
@@ -327,8 +327,7 @@ VALUES ('".$date."','".$pickup."','".$drop."','".$cab."','".$distance."','".$lug
             }
             return $a;
         } else {
-            echo $conn->error;
-
+            return $a;
         }
     }
 

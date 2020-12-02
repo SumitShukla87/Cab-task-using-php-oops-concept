@@ -37,7 +37,7 @@ if (isset($_SESSION['userdata'])) {?>
                         </div>
                         </li>
                         <li style="float:right">
-                            <a href="admin/logout.php">Logout</a>
+                            <a href="logout.php">Logout</a>
                         </li>
         </ul>      
     </div>                

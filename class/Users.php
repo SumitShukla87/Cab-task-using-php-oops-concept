@@ -8,7 +8,7 @@ class Users
     public function viewdata($conn)
     {
         $a=array();
-        $sql = "SELECT * from `tbl_user`";
+        $sql = "SELECT `user_name` FROM `tbl_user` ";
          
         $result =$conn->query($sql);
         if ($result->num_rows > 0) {
@@ -142,9 +142,9 @@ class Users
     {
         if ($currentpass!= "" && $npassword!= "" && $repassword!= "") {
             $sql = "UPDATE  `tbl_user` SET `password`='".$npassword."' where `user_name`='".$uname."'";
-            echo $sql;
             if ($conn->query($sql) === true) {
-                header("location:viewuser.php");
+                echo"<script>alert('Password Changed Successfully!!!!!!!');</script>";
+                header("location:logout.php");
             } else {
                 echo $conn->error;
             }
@@ -252,5 +252,29 @@ class Users
             echo $conn->error;
         }
     }
+
+    /**
+     * Function to show Approved User
+     * 
+     */
+    public function showapprove($conn)
+    {
+        $a=array();
+        $sql = "SELECT * from `tbl_user` WHERE `is_admin`= 0 AND `isblock` = 1";
+         
+        $result =$conn->query($sql);
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $check_user = $row['is_admin'];
+                if ($check_user == 0) {
+                    array_push($a, $row);
+
+                }                
+            }
+            return $a;
+        }
+    }
+
+
 
 }
