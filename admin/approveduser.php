@@ -1,4 +1,16 @@
 <?php
+/**
+ *  File Doc Comment
+ *
+ * PHP version 7
+ *
+ * @category Approve_User
+ * @package  Cab-rides
+ * @author   Sumit <sumitshukla@cedcoss.com>
+ * @license  Personal use License
+ * @link     https://localhost/
+ */
+
 
 session_start();
 if ($_SESSION['admin']== "") {
@@ -25,7 +37,7 @@ $unblock = new Users();
         <table class='view-table-css'>
         <tr>
                     <td colspan="6">
-                    <h2>-:-List of All Users-:-</h2>                    
+                    <h2>-:-List of Approved Users-:-</h2>                    
                     </td>
                  </tr>
         <tr>

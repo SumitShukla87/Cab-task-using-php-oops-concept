@@ -1,4 +1,15 @@
 <?php 
+/**
+ *  File Doc Comment
+ *
+ * PHP version 7
+ *
+ * @category View_Invoice
+ * @package  Cab-rides
+ * @author   Sumit <sumitshukla@cedcoss.com>
+ * @license  Personal use License
+ * @link     https://localhost/
+ */
     $id = $_REQUEST['id'];
 require "sidebar.php";
 require "header.php";

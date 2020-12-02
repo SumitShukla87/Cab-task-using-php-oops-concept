@@ -1,4 +1,15 @@
 <?php
+/**
+ *  File Doc Comment
+ *
+ * PHP version 7
+ *
+ * @category Change_Password
+ * @package  Cab-rides
+ * @author   Sumit <sumitshukla@cedcoss.com>
+ * @license  Personal use License
+ * @link     https://localhost/
+ */
     require "header.php";
     require "class/Users.php";
     require "class/Dbcon.php";

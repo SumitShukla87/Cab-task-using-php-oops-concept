@@ -1,5 +1,15 @@
 <?php
-      
+/**
+ *  File Doc Comment
+ *
+ * PHP version 7
+ *
+ * @category View_Rides
+ * @package  Cab-rides
+ * @author   Sumit <sumitshukla@cedcoss.com>
+ * @license  Personal use License
+ * @link     https://localhost/
+ */      
 require "header.php";
 require "class/Dbcon.php";
 require "class/Users.php";
@@ -51,6 +61,7 @@ $id = $_SESSION['userdata']['uid'];
                                         <div class="dropdown-content1">
                                              <a  href="viewrides.php?filter=week" >By Week</a>
                                              <a  href="viewrides.php?filter=month">By Month</a> 
+                                             <a  href="viewrides.php">No Filter</a> 
                                         </div>
                                    </div>     
                               </li>

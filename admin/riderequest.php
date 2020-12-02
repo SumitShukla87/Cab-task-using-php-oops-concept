@@ -1,8 +1,20 @@
 <?php
+/**
+ *  File Doc Comment
+ *
+ * PHP version 7
+ *
+ * @category Ride_Request
+ * @package  Cab-rides
+ * @author   Sumit <sumitshukla@cedcoss.com>
+ * @license  Personal use License
+ * @link     https://localhost/
+ */
+
     session_start();
-    if ($_SESSION['admin']== "") {
-        header("location:../login.php");
-    }
+if ($_SESSION['admin']== "") {
+    header("location:../login.php");
+}
 require "sidebar.php";
 require "header.php" ;
 
