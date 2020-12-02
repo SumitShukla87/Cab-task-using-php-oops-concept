@@ -215,6 +215,7 @@ if ($cab==1) {
         }
     }
 }
+$_SESSION['cab'] = $cab; 
 echo $fare;          
 $_SESSION['fare'] = $fare;         
 

@@ -30,6 +30,8 @@ $unblock = new Users();
     <div id="wrapper">
 <?php 
 
+
+
 if (isset($_POST['block'])) {
 
     $uid = isset($_POST['id'])?$_POST['id']:'';
@@ -43,17 +45,33 @@ if (isset($_POST['unblock'])) {
     echo $uid;
     $status = 1;
     $unblock->unblock($uid, $status, $db->conn);    
+}?><?php
+if (isset($_GET['value'])) {
+    $name = isset($_GET['value'])?$_GET['value']:'';
+
+} else {
+    $name='user_id';
 }
+
+    $details= $unblock->showuser($name, $db->conn);
 ?>
-
-
-            <?php
-
-                        $db = new Dbcon();
-                        $viewdata = new Users();
-                       $details= $viewdata->showuser($db->conn);
-            ?>
         <table class='view-table-css'>
+        <tr>
+                    <td colspan="8">
+                    <ul>
+                    <li class="dropdown">
+                        <a href="alluser.php"class="dropbtn approve-css">Sort Data</a>
+                        <div class="dropdown-content">
+                            <a  href="alluser.php?value=isblock" class="dropdown-content1">By Status</a>
+                            <a  href="alluser.php?value=dateofsignup" class="dropdown-content1">By Date</a>
+                        
+                    </div>
+                    </li>
+                </ul>
+                                      
+                    </td>
+        </tr>
+        
         <tr>
                     <td colspan="8">
                     <h2>-:-List of All Users-:-</h2>                    

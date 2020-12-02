@@ -19,16 +19,38 @@ if (!isset($_SESSION['userdata'])) {
      unset($_SESSION);
      header("location:login.php");
 } else {
+
      unset($_SESSION['book']);
     $id = $_SESSION['userdata']['uid'];
+    if (isset($_GET['value'])) {
+          $name = isset($_GET['value'])?$_GET['value']:'';
+ 
+    } else {
+          $name='ride_id';
+    }
     $db = new Dbcon();
     $ride = new Rides();
 
-    $details =$ride->showpending($id, $db->conn); ?>
+    $details =$ride->showpending($id, $name, $db->conn); ?>
 
     <table>
          <tr>
               <th colspan="10"><h2>-:- Pending Rides  -:-</h2></th>
+         </tr>
+         <tr>
+              <th colspan="10">
+              <ul>
+                              <li>
+                                   <div class="dropdown1">
+                                        <a href="pendingride.php" class="dropbtn approve-css">Sort Data</a>
+                                        <div class="dropdown-content1">
+                                             <a  href="pendingride.php?value=luggage" >By Luggage</a>
+                                             <a  href="pendingride.php?value=total_distance">By Distance</a> 
+                                        </div>
+                                   </div>     
+                              </li>
+                </ul>
+              </th>
          </tr>
         <tr>
         <th>Ride-ID</th>

@@ -27,15 +27,32 @@ require "../class/Rides.php";
 
       
             <?php
+            if (isset($_GET['value'])) {
+                $name = isset($_GET['value'])?$_GET['value']:'';
+            } else {
+                $name='customer_user_id';
+            }
 
                         $db = new Dbcon();
                         $viewdata = new Rides();
-                       $details= $viewdata->riderequest($db->conn);
+                       $details= $viewdata->riderequest($name, $db->conn);
             ?>
         <table>
         <tr>
         <tr>
-            <td colspan="7">  <h2>-:-Ride Request of Users-:-</h2></td>
+            <td colspan="9">  <h2>-:-Ride Request of Users-:-</h2></td>
+        </tr>
+        <tr>
+            <td colspan="9"> <ul>
+                    <li class="dropdown">
+                        <a href="riderequest.php"class="dropbtn approve-css">Sort Data</a>
+                        <div class="dropdown-content">
+                            <a  href="riderequest.php?value=`luggage`" class="dropdown-content1">By Luggage</a>
+                            <a  href="riderequest.php?value=`ride_date`" class="dropdown-content1">By Date</a>
+                            <a  href="riderequest.php?value=`total_distance`" class="dropdown-content1">By Distance</a>
+                        </div>
+                    </li>
+                </ul></td>
         </tr>
         <th>Customer ID</th>
         <th>Customer Name</th>

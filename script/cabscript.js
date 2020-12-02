@@ -1,9 +1,12 @@
 $(document).ready(function () {
     $("#cab").change(function () {
         if ($(this).val() == 1) {
-            $("#luggage").attr("disabled", "disabled")
+            $("#luggage").attr("disabled", "disabled");
+            $("#luggage").val("");
+            
 
         } else {
+           
             $("#luggage").removeAttr("disabled");
             $("#luggage").focus();
         }

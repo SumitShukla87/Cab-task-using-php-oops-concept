@@ -24,14 +24,32 @@ require "../class/Rides.php";
 
         
             <?php
+            if (isset($_GET['value'])) {
+                $name = isset($_GET['value'])?$_GET['value']:'';
+            } else {
+                $name='customer_user_id';
+            }
 
                         $db = new Dbcon();
                         $viewdata = new Rides();
-                       $details= $viewdata->completedride($db->conn);
+                       $details= $viewdata->completedride($name, $db->conn);
             ?>
         <table>
         <tr>
             <th colspan="9"><h2>-:-Completed Rides of Users-:-</h2></th> 
+        </tr>
+        <tr>
+            <th colspan="9">
+            <ul>
+                    <li class="dropdown">
+                        <a href="completedrides.php?value=`customer_user_id`"class="dropbtn approve-css">Sort Data</a>
+                        <div class="dropdown-content">
+                            <a  href="completedrides.php?value=`luggage`" class="dropdown-content1">Luggage</a>
+                            <a  href="completedrides.php?value=`total_distance`" class="dropdown-content1">Distance</a>
+                        </div>
+                    </li>
+                </ul>
+            </th> 
         </tr>
         <tr>
         <th>Customer ID</th>

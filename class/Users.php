@@ -195,10 +195,10 @@ class Users
      * Function to show All rides of user to the admin
      * 
      */
-    public function showuser($conn)
+    public function showuser($name ,$conn)
     {
         $a=array();
-        $sql = "SELECT * from `tbl_user` WHERE `is_admin`= 0 ";
+        $sql = "SELECT * from `tbl_user` WHERE `is_admin`= 0 ORDER BY CAST($name AS UNSIGNED ) ASC ";
          
         $result =$conn->query($sql);
         if ($result->num_rows > 0) {

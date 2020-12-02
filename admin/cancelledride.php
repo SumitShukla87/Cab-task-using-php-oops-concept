@@ -26,11 +26,29 @@ require "../class/Rides.php";
         <h2>-:-List of Cancelled Rides of Users-:-</h2>
             <?php
 
+            if (isset($_GET['value'])) {
+                $name = isset($_GET['value'])?$_GET['value']:'';
+            } else {
+                $name='customer_user_id';
+            }
                         $db = new Dbcon();
                         $viewdata = new Rides();
-                       $details= $viewdata->cancel_ride_user($db->conn);
+                       $details= $viewdata->cancel_ride_user($name, $db->conn);
             ?>
         <table class='view-table-css'>
+        <tr>
+            <th colspan="9">
+                <ul>
+                    <li class="dropdown">
+                        <a href="cancelledride.php?value=`customer_user_id`"class="dropbtn approve-css">Sort Data</a>
+                        <div class="dropdown-content">
+                            <a  href="cancelledride.php?value=`luggage`" class="dropdown-content1">Luggage</a>
+                            <a  href="cancelledride.php?value=`total_distance`" class="dropdown-content1">Distance</a>
+                        </div>
+                    </li>
+                </ul>
+            </th>
+        </tr>
         <tr>
         <th class='view-table-css-td'>Customer ID</th>
         <th class='view-table-css-td'>Pickup-Location</th>

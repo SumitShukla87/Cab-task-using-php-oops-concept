@@ -34,7 +34,7 @@ if (isset($_POST['submit'])) {
     $date = date("Y-m-d");
     $distance =  isset($_SESSION['distance'])?$_SESSION['distance']:'';
     $fare =  isset($_SESSION['fare'])?$_SESSION['fare']:'';
-    $cab = isset($_POST['cab'])?$_POST['cab']:'';
+    $cab = isset($_SESSION['cab'])?$_SESSION['cab']:'';
     $status = 1;
     if ($cab ==1) {
         $luggage = 0;
@@ -111,8 +111,8 @@ if (isset($_POST['submit'])) {
         </label>
         <p>
         </p>
-        <label for="luggage">Luggage
-            <input type="text" class="lug" name="weight" id="luggage" placeholder="Enter Luggage Here In Kg" required>
+        <label for="luggage" class="luggage">Luggage
+            <input type="text" class="lug luggage" name="weight" id="luggage" placeholder="Enter Luggage Here In Kg" required>
         </label>
         <p>
         </p>

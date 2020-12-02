@@ -22,14 +22,35 @@ if (!isset($_SESSION['userdata'])) {
      header("location:login.php");
 } else {
     $id = $_SESSION['userdata']['uid'];
+    if (isset($_GET['value'])) {
+         $name = isset($_GET['value'])?$_GET['value']:'';
+
+    } else {
+         $name='ride_id';
+    }
     $db = new Dbcon();
     $ride = new Rides();
 
-    $details =$ride->viewcancel($id, $db->conn); ?>
+    $details =$ride->viewcancel($id, $name, $db->conn); ?>
 
     <table>
+          <tr>
+              <th colspan="9">
+              <ul>
+                              <li>
+                                   <div class="dropdown1">
+                                        <a href="showcancel.php" class="dropbtn approve-css">Sort Data</a>
+                                        <div class="dropdown-content1">
+                                             <a  href="showcancel.php?value=luggage" >By Luggage</a>
+                                             <a  href="showcancel.php?value=total_distance">By Distance</a> 
+                                        </div>
+                                   </div>     
+                              </li>
+                </ul>
+              </th>
+         </tr>
          <tr>
-              <th colspan="9"><h2>-:- Completed Rides  -:-</h2></th>
+              <th colspan="9"><h2>-:- Cancelled Rides  -:-</h2></th>
          </tr>
         <tr>
         <th>Ride-ID</th>

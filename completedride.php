@@ -21,15 +21,39 @@ if (!isset($_SESSION['userdata'])) {
      unset($_SESSION);
      header("location:login.php");
 } else {
+    if (isset($_GET['value'])) {
+          $name = isset($_GET['value'])?$_GET['value']:'';
+      
+    } else {
+          $name='ride_id';
+    }
+      
     $id = $_SESSION['userdata']['uid'];
     $db = new Dbcon();
     $ride = new Rides();
 
-    $details =$ride->showcompleted($id, $db->conn); ?>
+    $details =$ride->showcompleted($id, $name, $db->conn); ?>
 
     <table>
          <tr>
               <th colspan="9"><h2>-:- Completed Rides  -:-</h2></th>
+         </tr>
+         <tr>
+              <td colspan="9">
+              <ul>
+                              <li>
+                                   <div class="dropdown1">
+                                        <a href="completedride.php" class="dropbtn approve-css">Sort Data</a>
+                                        <div class="dropdown-content1">
+                                             <a  href="completedride.php?value=luggage" >By Luggage</a>
+                                             <a  href="completedride.php?value=total_distance">By Distance</a> 
+                                        </div>
+                                   </div>     
+                              </li>
+                </ul>
+
+
+              </td>
          </tr>
         <tr>
         <th>Ride-ID</th>

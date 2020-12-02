@@ -1,16 +1,4 @@
 <?php
-/**
- *  File Doc Comment
- *
- * PHP version 7
- *
- * @category Monthly_Income
- * @package  Cab-rides
- * @author   Sumit <sumitshukla@cedcoss.com>
- * @license  Personal use License
- * @link     https://localhost/
- */
-
     session_start();
 if ($_SESSION['admin']== "") {
     header("location:../login.php");

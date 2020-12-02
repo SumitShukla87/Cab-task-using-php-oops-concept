@@ -30,10 +30,10 @@ class Rides
     /**
 * Method to show Pending ride details of user
 */
-    public function showpending($id, $conn)
+    public function showpending($id, $name, $conn)
     {
         $a=array();
-        $sql = "SELECT * from `tbl_ride` Where `customer_user_id`='".$id."' AND `status` = 1";
+        $sql = "SELECT * from `tbl_ride` Where `customer_user_id`='".$id."' AND `status` = 1 ORDER BY CAST($name AS UNSIGNED ) ASC";
         $result =$conn->query($sql);
         while ($row = $result->fetch_assoc()) {
             array_push($a, $row);
@@ -43,10 +43,10 @@ class Rides
     /**
 * Method to show Completed ride details of user
 */
-    public function showcompleted($id, $conn)
+    public function showcompleted($id, $name ,$conn)
     {
         $a=array();
-        $sql = "SELECT * from `tbl_ride` Where `customer_user_id`='".$id."' AND `status` = 2";
+        $sql = "SELECT * from `tbl_ride` Where `customer_user_id`='".$id."' AND `status` = 2  ORDER BY CAST($name AS UNSIGNED ) ASC";
         $result =$conn->query($sql);
         while ($row = $result->fetch_assoc()) {
             array_push($a, $row);
@@ -71,11 +71,11 @@ VALUES ('".$date."','".$pickup."','".$drop."','".$cab."','".$distance."','".$lug
     /**
 * Fucntion to show ride request to the admin
 */
-    public function riderequest($conn)
+    public function riderequest($name, $conn)
     {
         $a=array();
         // $sql = "SELECT * from `tbl_ride`";
-        $sql= "SELECT * FROM `tbl_user` INNER JOIN `tbl_ride` ON `tbl_user`.`user_id` = `tbl_ride`.`customer_user_id`";
+        $sql= "SELECT * FROM `tbl_user` INNER JOIN `tbl_ride` ON `tbl_user`.`user_id` = `tbl_ride`.`customer_user_id` ORDER BY CAST($name AS UNSIGNED ) ASC";
         $result =$conn->query($sql);
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
@@ -178,10 +178,10 @@ VALUES ('".$date."','".$pickup."','".$drop."','".$cab."','".$distance."','".$lug
 * Function to show Completed Rides of user to the admin
 *
 */
-    public function completedride($conn)
+    public function completedride($name, $conn)
     {
         $a=array();
-        $sql= "SELECT * FROM `tbl_user` INNER JOIN `tbl_ride` ON `tbl_user`.`user_id` = `tbl_ride`.`customer_user_id`";
+        $sql= "SELECT * FROM `tbl_user` INNER JOIN `tbl_ride` ON `tbl_user`.`user_id` = `tbl_ride`.`customer_user_id` ORDER BY CAST($name AS UNSIGNED ) ASC";
         $result =$conn->query($sql);
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
@@ -197,10 +197,10 @@ VALUES ('".$date."','".$pickup."','".$drop."','".$cab."','".$distance."','".$lug
     /**
     *   Function to show Completed Rides of user to the admin
     */
-    public function cancel_ride_user($conn)
+    public function cancel_ride_user($name , $conn)
     {
         $a=array();
-        $sql= "SELECT * FROM `tbl_user` INNER JOIN `tbl_ride` ON `tbl_user`.`user_id` = `tbl_ride`.`customer_user_id`";
+        $sql= "SELECT * FROM `tbl_user` INNER JOIN `tbl_ride` ON `tbl_user`.`user_id` = `tbl_ride`.`customer_user_id` ORDER BY CAST($name AS UNSIGNED ) ASC";
         $result =$conn->query($sql);
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
@@ -330,10 +330,10 @@ VALUES ('".$date."','".$pickup."','".$drop."','".$cab."','".$distance."','".$lug
     /**
     * Method to show Cancelled ride details of user
     */
-    public function viewcancel($id, $conn)
+    public function viewcancel($id, $name,$conn)
     {
         $a=array();
-        $sql = "SELECT * from `tbl_ride` Where `customer_user_id`='".$id."' AND `status` = 0";
+        $sql = "SELECT * from `tbl_ride` Where `customer_user_id`='".$id."' AND `status` = 0 ORDER BY CAST($name AS UNSIGNED ) ASC";
         $result =$conn->query($sql);
         while ($row = $result->fetch_assoc()) {
             array_push($a, $row);
