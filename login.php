@@ -17,6 +17,13 @@ require_once "class/Rides.php";
 require "header.php";
 ?>
 <?php
+if (!isset($_SESSION['begin'])) {
+    $_SESSION['begin'] = time();
+
+} elseif (time()-$_SESSION['begin']>120) {
+    unset($_SESSION['book']);
+
+}
 if (isset($_POST['submit'])) {
     $db = new Dbcon();
     $username = isset($_POST['uname'])?$_POST['uname']:'';
@@ -33,8 +40,10 @@ if (isset($_POST['submit'])) {
         $ridedata = new Rides();
         if (isset($_SESSION['book'])) {
             $ridedata->insertride($_SESSION['book']['pickup'], $_SESSION['book']['drop'], $_SESSION['book']['date'], $_SESSION['book']['distance'], $_SESSION['book']['fare'], $_SESSION['book']['status'], $id, $_SESSION['book']['cab'], $_SESSION['book']['luggage'], $db->conn);
+            unset($_SESSION['book']);
+           
         }   
-        unset($_SESSION['book']);
+       
     }
   
   

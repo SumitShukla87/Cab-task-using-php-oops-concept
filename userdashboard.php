@@ -23,7 +23,6 @@ if (!isset($_SESSION['userdata'])) {
 ?>
     <?php
     $id = $_SESSION['userdata']['uid'];
-
     $db = new Dbcon();
     $viewdata = new Rides();
     $details= $viewdata->userrequest($id, $db->conn);

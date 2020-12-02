@@ -18,6 +18,15 @@ require "class/Rides.php";
 $db = new Dbcon();
 ?>
 <?php
+
+if (!isset($_SESSION['begin'])) {
+    $_SESSION['begin'] = time();
+
+} elseif (time()-$_SESSION['begin']>10) {
+    unset($_SESSION['book']);
+
+}
+
 if (isset($_POST['submit'])) {
     $ride = new Rides();
     $pickup = isset($_POST['pickup'])?$_POST['pickup']:'';
@@ -36,6 +45,8 @@ if (isset($_POST['submit'])) {
     if (!isset($_SESSION['userdata'])) {
     
         $_SESSION['book'] = array('pickup'=>$pickup,'drop'=>$drop,'date'=>$date,'cab'=>$cab,'fare'=>$fare , 'distance'=>$distance,'luggage'=>$luggage,'status'=>$status);
+       
+        $_SESSION['begin'] = time();
         header("location:login.php");
     } else {
         $id = $_SESSION['userdata']['uid'];
