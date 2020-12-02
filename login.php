@@ -34,7 +34,7 @@ if (isset($_POST['submit'])) {
         if (isset($_SESSION['book'])) {
             $ridedata->insertride($_SESSION['book']['pickup'], $_SESSION['book']['drop'], $_SESSION['book']['date'], $_SESSION['book']['distance'], $_SESSION['book']['fare'], $_SESSION['book']['status'], $id, $_SESSION['book']['cab'], $_SESSION['book']['luggage'], $db->conn);
         }   
-        session_unset($_SESSION['book']);
+        unset($_SESSION['book']);
     }
   
   

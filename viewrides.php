@@ -96,10 +96,10 @@ $id = $_SESSION['userdata']['uid'];
                         <?php echo $value['to'];?>
                    </td>
                    <td>
-                        <?php echo $value['total_distance'];?>
+                        <?php echo $value['total_distance'];?>km
                    </td>
                    <td>
-                        <?php echo $value['luggage'];?>
+                        <?php echo $value['luggage'];?>kg
                    </td>
                    <td>
                         <?php echo $value['ride_date'];?>

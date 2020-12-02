@@ -47,8 +47,8 @@ foreach ($details as $key =>$ride) {
             
                     <td class='view-table-css-td'><?php echo $ride['from']?></td>
                     <td class='view-table-css-td'><?php echo $ride['to']?></td>
-                    <td class='view-table-css-td'><?php echo $ride['total_distance']?></td>
-                    <td class='view-table-css-td'><?php echo $ride['luggage']?></td>
+                    <td class='view-table-css-td'><?php echo $ride['total_distance']?> km</td>
+                    <td class='view-table-css-td'><?php echo $ride['luggage']?> kg</td>
                     <td class='view-table-css-td'><?php echo $ride['ride_date']?></td>
                     <td class='view-table-css-td'><?php $status = $ride['status'];
                     if ($status==0) {

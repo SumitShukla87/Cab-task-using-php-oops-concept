@@ -54,8 +54,8 @@ foreach ($details as $key =>$ride) {
                 <td><?php echo $ride['name']?></td>        
                 <td><?php echo $ride['from']?></td>
                 <td><?php echo $ride['to']?></td>
-                <td><?php echo $ride['total_distance']?></td>
-                <td><?php echo $ride['luggage']?></td>
+                <td><?php echo $ride['total_distance']?>km</td>
+                <td><?php echo $ride['luggage']?>kg</td>
                 <td><?php echo $ride['ride_date']?></td>
                 <td><a href="approveride.php?id=<?php echo $ride['ride_id']?>" class="approve-css">Approve Ride</a></td>
                 <td><a href="cancelride.php?id=<?php echo $ride['ride_id']?>" class="delete-css">Cancel Ride</a></td>
