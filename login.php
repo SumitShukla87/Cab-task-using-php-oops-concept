@@ -37,12 +37,7 @@ if (isset($_POST['submit'])) {
     $login_data->login($username, $password, $db->conn);
     if (isset($_SESSION['userdata'])) {
         $id = $_SESSION['userdata']['uid'];
-        $ridedata = new Rides();
-        if (isset($_SESSION['book'])) {
-            $ridedata->insertride($_SESSION['book']['pickup'], $_SESSION['book']['drop'], $_SESSION['book']['date'], $_SESSION['book']['distance'], $_SESSION['book']['fare'], $_SESSION['book']['status'], $id, $_SESSION['book']['cab'], $_SESSION['book']['luggage'], $db->conn);
-            unset($_SESSION['book']);
-           
-        }   
+        header("location:confirm.php");  
        
     }
   

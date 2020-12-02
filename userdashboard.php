@@ -14,7 +14,13 @@ require "header.php";
 require "class/Dbcon.php";
 require "class/Users.php";
 require "class/Rides.php";
+if (!isset($_SESSION['begin'])) {
+    $_SESSION['begin'] = time();
 
+} elseif (time()-$_SESSION['begin']>120) {
+    unset($_SESSION['book']);
+
+}
 if (!isset($_SESSION['userdata'])) {
      unset($_SESSION);
      header("location:login.php");
