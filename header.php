@@ -20,7 +20,12 @@ if (isset($_SESSION['userdata'])) {?>
                         <li>
                             <a href="index.php" class="active">Book Cab</a>
                         </li>
+                        <?php if (isset($_SESSION['book'])) {?>
                         <li>
+                            <a href="confirm.php">Confirm Booking</a>
+                        </li>
+                        <?php } ?>
+                       <li>
                             <a href="viewexp.php?value=`ride_id`">View Expenses</a>
                         </li>
                         <li>
@@ -52,7 +57,7 @@ if (isset($_SESSION['userdata'])) {?>
                         </li>
         </ul>      
     </div>                
-<?php          
+<?php
 } else {
     ?>
         <div class="nav-right">
@@ -69,7 +74,8 @@ if (isset($_SESSION['userdata'])) {?>
         </ul>                
         </div>
 
-<?php }
+<?php
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

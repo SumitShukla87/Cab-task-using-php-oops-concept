@@ -1,5 +1,9 @@
 $(document).ready(function () {
     $("#cab").change(function () {
+        $("#res").val(0);
+        $("#res").hide();
+        $("#book").hide();
+
         if ($(this).val() == 1) {
             $("#luggage").attr("disabled", "disabled");
             $("#luggage").val("");
@@ -12,14 +16,22 @@ $(document).ready(function () {
         }
     });
     $("#pick").change(function () {
+        $("#res").val(0);
         $("#res").hide();
         $("#book").hide();
         
     });
     $("#dr").change(function () {
+        $("#res").val(0);
         $("#res").hide();
         $("#book").hide();
       
+    });
+    $("#luggage").focus(function () {
+        $("#res").val(0);
+        $("#res").hide();
+        $("#book").hide();
+        
     });
 
     $('.lug').keyup(function () {

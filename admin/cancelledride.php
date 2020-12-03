@@ -51,6 +51,7 @@ require "../class/Rides.php";
         </tr>
         <tr>
         <th>Customer ID</th>
+        <th>Customer Name</th>
         <th>Pickup-Location</th>
         <th>Drop-Location</th>
         <th>Total Distance</th>
@@ -63,6 +64,7 @@ foreach ($details as $key =>$ride) {
     ?>
                 <tr>
                     <td><?php echo $ride['customer_user_id']?></td>
+                    <td><?php echo $ride['name']?></td>
             
                     <td><?php echo $ride['from']?></td>
                     <td><?php echo $ride['to']?></td>

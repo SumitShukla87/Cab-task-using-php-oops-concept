@@ -61,7 +61,7 @@
             </td>
             <?php if (isset($_POST['edit'])) { ?>
             <td>
-               <input type="text" name="fname" value="<?php echo $total_data['name'];?>">
+               <input type="text" name="fname" class="nameclass" value="<?php echo $total_data['name'];?>" required>
             </td>   
             <?php } else {?>
             <td>
@@ -76,7 +76,7 @@
             </td>
             <?php if (isset($_POST['edit'])) { ?>
             <td>
-               <input type="text" name="mobile" class="lug" value="<?php echo $total_data['mobile'];?>">
+               <input type="text" name="mobile" class="lug" value="<?php echo $total_data['mobile'];?>" required>
             </td>   
             <?php } else {?>
             <td>

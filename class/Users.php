@@ -119,7 +119,7 @@ class Users
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
             return $row;
-        }
+        } 
     }
     /**
      * Function for updation of the User
@@ -131,7 +131,7 @@ class Users
         if ($conn->query($sql) === true) {
             header("location:viewuser.php");
         } else {
-            echo $conn->error;
+            echo'<script>alert("'.$conn->error.'")</script>';
         }
        
     }
