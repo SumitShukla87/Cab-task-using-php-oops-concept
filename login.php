@@ -29,7 +29,7 @@ if (isset($_POST['submit'])) {
     $username = isset($_POST['uname'])?$_POST['uname']:'';
     $password = md5(isset($_POST['password'])?$_POST['password']:'');
     if (isset($_POST['remember'])) {
-        setcookie("username", $username, time()+60*60*7);
+        setcookie("username", $username, time()+60*60*2);
 
     }
    
