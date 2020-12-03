@@ -43,7 +43,7 @@ if (!isset($_SESSION['userdata'])) {
                 <img src="img_avatar.png" alt="Avatar" style="width:100%">
                 <div class="container">
                     <h4><b><?php echo $name;?></b></h4> 
-                    <p>Authorizred User Of Ced Cab</p> 
+                    <p>Authorized User Of Ced Cab</p> 
                     <a href="viewuser.php" class="delete-css">My Account</a>
                 </div>
             </div>
