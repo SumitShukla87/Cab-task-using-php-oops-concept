@@ -76,7 +76,7 @@
             </td>
             <?php if (isset($_POST['edit'])) { ?>
             <td>
-               <input type="text" name="mobile" class="lug" value="<?php echo $total_data['mobile'];?>" required>
+               <input type="number" name="mobile" class="lug" value="<?php echo $total_data['mobile'];?>" required>
             </td>   
             <?php } else {?>
             <td>

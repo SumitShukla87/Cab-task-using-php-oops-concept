@@ -35,11 +35,11 @@ $(document).ready(function () {
     });
 
     $('.lug').keyup(function () {
-        this.value = this.value.replace(/[^0-9]/g, '');
+        this.value = this.value.replace(/[^0-9\.]/g,'');
     });
 
     $('.mobile').keyup(function () {
-        this.value = this.value.replace(/[^0-9]/g, '');
+        this.value = this.value.replace(/[^0-9]/g,'');
     });
     $('.nameclass').keydown(function (e) {
         if (e.ctrlKey || e.altKey) {

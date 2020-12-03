@@ -55,6 +55,7 @@ if (isset($_POST['submit'])) {
         
         $book = new Rides();
         $book->insertride($pickup, $drop, $date, $distance, $fare, $status, $id, $cab, $luggage, $db->conn);
+        unset($_SESSION['book']);
     }
 }
 ?>
@@ -112,7 +113,7 @@ if (isset($_POST['submit'])) {
         <p>
         </p>
         <label for="luggage" class="luggage">Luggage
-            <input type="text" class="lug luggage" name="weight" id="luggage" placeholder="Enter Luggage Here In Kg" required>
+            <input type="number" class="lug luggage" name="weight" id="luggage" step="any" placeholder="Enter Luggage Here In Kg" required>
         </label>
         <p>
         </p>

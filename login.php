@@ -47,11 +47,11 @@ if (isset($_POST['submit'])) {
         <div id="wrapper">
             <div class="main">
                 <form action="" method="POST">
-                    <marquee>
+
                         <h1 id="index-marquee-css">
                            Please Login Here
                             <h1>
-                            </marquee>
+
                             <table id="index-table-css">
                                 <tr>
                                     <td>
