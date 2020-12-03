@@ -28,10 +28,7 @@ if (!isset($_SESSION['userdata'])) {
     $name = $_SESSION['userdata']['username'];
 ?>
     <?php
-    if (isset($_SESSION['book'])) {
-        echo "<script>alert('Please Confirm Your Booking Request within 2 Minutes Otherwise data will be Lost')</script>";
-                       
-    }
+    
     $id = $_SESSION['userdata']['uid'];
     $db = new Dbcon();
     $viewdata = new Rides();

@@ -12,10 +12,7 @@
                             TECHNOLOGIES</span></a> </p>
 
             </div>
-      
-
-
-    </footer>
+</footer>
     <script src="script/jquery-3.5.1.min.js"></script>
 <script src="script/cabscript.js"></script>
 </body>

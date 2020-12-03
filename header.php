@@ -11,7 +11,14 @@
  * @link     https://localhost/
  */
     session_start();
-if (isset($_SESSION['userdata'])) {?>
+if (isset($_SESSION['userdata'])) {
+    if (!isset($_SESSION['begin'])) {
+        $_SESSION['begin'] = time();
+
+    } elseif (time()-$_SESSION['begin']>120) {
+        unset($_SESSION['book']);
+
+    }?>
      <div class="nav-right">
         <ul>
                         <li>
