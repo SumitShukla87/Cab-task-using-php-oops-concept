@@ -30,10 +30,22 @@ class Rides
     /**
 * Method to show Pending ride details of user
 */
-    public function showpending($id, $name, $conn)
+    public function showpending($id, $filterby, $conn)
     {
         $a=array();
-        $sql = "SELECT * from `tbl_ride` Where `customer_user_id`='".$id."' AND `status` = 1 ORDER BY CAST($name AS UNSIGNED ) ASC";
+        
+        if ($filterby == "week") {
+            // $sql = "SELECT * from tbl_ride WHERE `customer_user_id`='".$id."' AND `ride_date` BETWEEN curdate() - INTERVAL 1 MONTH AND curdate()";
+            $sql = "SELECT * from `tbl_ride` Where `customer_user_id`='".$id."' AND `status` = 1 AND `ride_date`> DATE_SUB(curdate(),INTERVAL 1 WEEK)";
+        } elseif ($filterby == "month") {
+            $sql = "SELECT * from `tbl_ride` Where `customer_user_id`='".$id."' AND `status` = 1  AND `ride_date`> DATE_SUB(curdate(),INTERVAL 1 MONTH)";
+        } elseif ($filterby == "luggage") {
+            $sql = "SELECT * from `tbl_ride` Where `customer_user_id`='".$id."' AND `status` = 1  ORDER BY CAST(`luggage` AS UNSIGNED ) ASC";
+        } elseif ($filterby == "distance") {
+            $sql = "SELECT * from `tbl_ride` Where `customer_user_id`='".$id."' AND `status` = 1  ORDER BY CAST(`total_distance` AS UNSIGNED ) ASC";
+        } else {
+            $sql = "SELECT * from `tbl_ride` Where `customer_user_id`='".$id."' AND `status` = 1 ";
+        }  
         $result =$conn->query($sql);
         while ($row = $result->fetch_assoc()) {
             array_push($a, $row);
@@ -43,10 +55,21 @@ class Rides
     /**
 * Method to show Completed ride details of user
 */
-    public function showcompleted($id, $name ,$conn)
+    public function showcompleted($id, $filterby ,$conn)
     {
         $a=array();
-        $sql = "SELECT * from `tbl_ride` Where `customer_user_id`='".$id."' AND `status` = 2  ORDER BY CAST($name AS UNSIGNED ) ASC";
+        if ($filterby == "week") {
+            // $sql = "SELECT * from tbl_ride WHERE `customer_user_id`='".$id."' AND `ride_date` BETWEEN curdate() - INTERVAL 1 MONTH AND curdate()";
+            $sql = "SELECT * from `tbl_ride` Where `customer_user_id`='".$id."' AND `status` = 2 AND `ride_date`> DATE_SUB(curdate(),INTERVAL 1 WEEK)";
+        } elseif ($filterby == "month") {
+            $sql = "SELECT * from `tbl_ride` Where `customer_user_id`='".$id."' AND `status` = 2 AND `ride_date`> DATE_SUB(curdate(),INTERVAL 1 MONTH)";
+        } elseif ($filterby == "luggage") {
+            $sql = "SELECT * from `tbl_ride` Where `customer_user_id`='".$id."' AND `status` = 2  ORDER BY CAST(`luggage` AS UNSIGNED ) ASC";
+        } elseif ($filterby == "distance") {
+            $sql = "SELECT * from `tbl_ride` Where `customer_user_id`='".$id."' AND `status` = 2  ORDER BY CAST(`total_distance` AS UNSIGNED ) ASC";
+        } else {
+            $sql = "SELECT * from `tbl_ride` Where `customer_user_id`='".$id."' AND `status` = 2 ";
+        }
         $result =$conn->query($sql);
         while ($row = $result->fetch_assoc()) {
             array_push($a, $row);
@@ -330,11 +353,21 @@ VALUES ('".$date."','".$pickup."','".$drop."','".$cab."','".$distance."','".$lug
     /**
     * Method to show Cancelled ride details of user
     */
-    public function viewcancel($id, $name,$conn)
+    public function viewcancel($id, $filterby,$conn)
     {
         $a=array();
-        $sql = "SELECT * from `tbl_ride` Where `customer_user_id`='".$id."' AND `status` = 0 ORDER BY CAST($name AS UNSIGNED ) ASC";
-        $result =$conn->query($sql);
+        if ($filterby == "week") {
+            // $sql = "SELECT * from tbl_ride WHERE `customer_user_id`='".$id."' AND `ride_date` BETWEEN curdate() - INTERVAL 1 MONTH AND curdate()";
+            $sql = "SELECT * from `tbl_ride` Where `customer_user_id`='".$id."' AND `status` = 0 AND `ride_date`> DATE_SUB(curdate(),INTERVAL 1 WEEK)";
+        } elseif ($filterby == "month") {
+            $sql = "SELECT * from `tbl_ride` Where `customer_user_id`='".$id."' AND `status` = 0 AND `ride_date`> DATE_SUB(curdate(),INTERVAL 1 MONTH)";
+        } elseif ($filterby == "luggage") {
+            $sql = "SELECT * from `tbl_ride` Where `customer_user_id`='".$id."' AND `status` = 0  ORDER BY CAST(`luggage` AS UNSIGNED ) ASC";
+        } elseif ($filterby == "distance") {
+            $sql = "SELECT * from `tbl_ride` Where `customer_user_id`='".$id."' AND `status` = 0  ORDER BY CAST(`total_distance` AS UNSIGNED ) ASC";
+        } else {
+            $sql = "SELECT * from `tbl_ride` Where `customer_user_id`='".$id."' AND `status` = 0 ";
+        }$result =$conn->query($sql);
         while ($row = $result->fetch_assoc()) {
             array_push($a, $row);
         }

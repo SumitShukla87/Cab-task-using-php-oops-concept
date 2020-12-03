@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
  *  File Doc Comment
  *
@@ -18,43 +18,56 @@ require "class/Users.php";
 require "class/Rides.php";
 
 if (!isset($_SESSION['userdata'])) {
-     unset($_SESSION);
-     header("location:login.php");
+    unset($_SESSION);
+    header("location:login.php");
 } else {
-    if (isset($_GET['value'])) {
-          $name = isset($_GET['value'])?$_GET['value']:'';
-      
+    if (isset($_GET['filter'])) {
+        $filterby = isset($_GET['filter'])?$_GET['filter']:'';
     } else {
-          $name='ride_id';
+        $filterby ='';
     }
       
     $id = $_SESSION['userdata']['uid'];
     $db = new Dbcon();
     $ride = new Rides();
 
-    $details =$ride->showcompleted($id, $name, $db->conn); ?>
+    $details =$ride->showcompleted($id, $filterby, $db->conn); ?>
 
     <table>
          <tr>
               <th colspan="9"><h2>-:- Completed Rides  -:-</h2></th>
          </tr>
          <tr>
-              <td colspan="9">
-              <ul>
+                    <th colspan="9">
+                         <ul>
                               <li>
                                    <div class="dropdown1">
                                         <a href="completedride.php" class="dropbtn approve-css">Sort Data</a>
                                         <div class="dropdown-content1">
-                                             <a  href="completedride.php?value=luggage" >By Luggage</a>
-                                             <a  href="completedride.php?value=total_distance">By Distance</a> 
+                                             <a  href="completedride.php?filter=luggage" >By Luggage</a>
+                                             <a  href="completedride.php?filter=distance">By Distance</a> 
                                         </div>
                                    </div>     
                               </li>
-                </ul>
-
-
-              </td>
-         </tr>
+                         </ul>
+                    </th>
+               </tr>
+               <tr>
+                    <th colspan="9">
+                         <ul>
+                              <li>
+                                   <div class="dropdown1">
+                                        <a href="completedride.php" class="dropbtn approve-css">Filter  Data</a>
+                                        <div class="dropdown-content1">
+                                             <a  href="completedride.php?filter=week" >By Week</a>
+                                             <a  href="completedride.php?filter=month">By Month</a> 
+                                             <a  href="completedride.php">No Filter</a> 
+                                        </div>
+                                   </div>     
+                              </li>
+                         </ul>
+                    </th>
+               </tr>
         <tr>
         <th>Ride-ID</th>
         <th>Pickup-Location</th>
