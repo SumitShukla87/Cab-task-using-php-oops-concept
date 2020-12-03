@@ -11,6 +11,16 @@ $(document).ready(function () {
             $("#luggage").focus();
         }
     });
+    $("#pick").change(function () {
+        $("#res").hide();
+        $("#book").hide();
+        
+    });
+    $("#dr").change(function () {
+        $("#res").hide();
+        $("#book").hide();
+      
+    });
 
     $('.lug').keyup(function () {
         this.value = this.value.replace(/[^0-9\.]/g, '');
@@ -37,6 +47,7 @@ $(document).ready(function () {
         var c = $("#cab").val();
         var l = $("#luggage").val();
         if (p == d) {
+            $("#res").show();
             $("#res").css("display:block");
             $("#res").html("Pick Up and destination can not be same");
         } else {
@@ -52,6 +63,7 @@ $(document).ready(function () {
 
                 },
                 success: function (result) {
+                    $("#res").show();
                     $("#res").html("Total fare Is: " + result);
                     $("#book").show();
                 },

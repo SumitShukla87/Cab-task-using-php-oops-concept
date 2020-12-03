@@ -38,6 +38,9 @@
         if ($cpass!=$currentpass) {
             $errors[] = array('input'=>'password','msg'=>'Current Password Is Wrong Please Enter Right Password');
         }
+        if ($currentpass==$npassword) {
+            $errors[] = array('input'=>'password','msg'=>'Your New Password is same as Last Password please change it!');
+        }
         if (sizeof($errors)==0) {
             $update_user->changepassword($uname, $currentpass, $npassword, $repassword, $db->conn);
         }
