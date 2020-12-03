@@ -50,25 +50,30 @@ require "../class/Rides.php";
             </th>
         </tr>
         <tr>
-        <th class='view-table-css-td'>Customer ID</th>
-        <th class='view-table-css-td'>Pickup-Location</th>
-        <th class='view-table-css-td'>Drop-Location</th>
-        <th class='view-table-css-td'>Total Distance</th>
-        <th class='view-table-css-td'>Luggage</th>
-        <th class='view-table-css-td'>Ride-Date</th>
-        <th class='view-table-css-td'>Status</th>
+        <th>Customer ID</th>
+        <th>Pickup-Location</th>
+        <th>Drop-Location</th>
+        <th>Total Distance</th>
+        <th>Luggage</th>
+        <th>Ride-Date</th>
+        <th>Fare</th>
+        <th>Status</th>
 <?php
 foreach ($details as $key =>$ride) {
     ?>
                 <tr>
-                    <td class='view-table-css-td'><?php echo $ride['customer_user_id']?></td>
+                    <td><?php echo $ride['customer_user_id']?></td>
             
-                    <td class='view-table-css-td'><?php echo $ride['from']?></td>
-                    <td class='view-table-css-td'><?php echo $ride['to']?></td>
-                    <td class='view-table-css-td'><?php echo $ride['total_distance']?> km</td>
-                    <td class='view-table-css-td'><?php echo $ride['luggage']?> kg</td>
-                    <td class='view-table-css-td'><?php echo $ride['ride_date']?></td>
-                    <td class='view-table-css-td'><?php $status = $ride['status'];
+                    <td><?php echo $ride['from']?></td>
+                    <td><?php echo $ride['to']?></td>
+                    <td><?php echo $ride['total_distance']?> km</td>
+                    <td><?php echo $ride['luggage']?> kg</td>
+                    <td><?php echo $ride['ride_date']?></td>
+                    <td>
+                        <?php echo $ride['total_fare'];        
+                        ?> rs.
+               </td>
+                    <td><?php $status = $ride['status'];
                     if ($status==0) {
                         echo "Cancelled";
 

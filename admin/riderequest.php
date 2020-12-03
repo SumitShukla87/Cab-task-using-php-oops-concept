@@ -40,10 +40,10 @@ require "../class/Rides.php";
         <table>
         <tr>
         <tr>
-            <td colspan="9">  <h2>-:-Ride Request of Users-:-</h2></td>
+            <td colspan="10">  <h2>-:-Ride Request of Users-:-</h2></td>
         </tr>
         <tr>
-            <td colspan="9"> <ul>
+            <td colspan="10"> <ul>
                     <li class="dropdown">
                         <a href="riderequest.php"class="dropbtn approve-css">Sort Data</a>
                         <div class="dropdown-content">
@@ -61,6 +61,7 @@ require "../class/Rides.php";
         <th>Total Distance</th>
         <th>Luggage</th>
         <th>Ride Date</th>
+        <th>Total Fare</th>
         <th>Approve Ride</th>
         <th>Cancel Ride</th></tr>
 <?php
@@ -74,6 +75,10 @@ foreach ($details as $key =>$ride) {
                 <td><?php echo $ride['total_distance']?>km</td>
                 <td><?php echo $ride['luggage']?>kg</td>
                 <td><?php echo $ride['ride_date']?></td>
+                <td>
+                        <?php echo $ride['total_fare'];        
+                        ?> rs.
+               </td>
                 <td><a href="approveride.php?id=<?php echo $ride['ride_id']?>" class="approve-css">Approve Ride</a></td>
                 <td><a href="cancelride.php?id=<?php echo $ride['ride_id']?>" class="delete-css">Cancel Ride</a></td>
                 </tr>

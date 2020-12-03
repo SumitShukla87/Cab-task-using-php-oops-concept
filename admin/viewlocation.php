@@ -149,7 +149,7 @@ foreach ($locations as $key =>$udetails) {
                         <input type="text" name="distance" value="<?php echo $udetails['distance'];?>">
                     <?php } else {?>
                    
-                        <?php echo $udetails['distance'];?>
+                        <?php echo $udetails['distance'];?> km
                      
                     <?php } ?>
                     </td>

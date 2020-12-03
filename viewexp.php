@@ -54,11 +54,11 @@ if (!isset($_SESSION['userdata'])) {
               <th colspan="6"><h2>-:- Expanses on Cab  -:-</h2></th>
          </tr>
         <tr>
-            <th class='view-table-css-td'>Ride-ID</th>
-            <th class='view-table-css-td'>Pickup-Location</th>
-            <th class='view-table-css-td'>Drop-Location</th>
-            <th class='view-table-css-td'>Distance</th>
-            <th class='view-table-css-td'>Fare
+            <th>Ride-ID</th>
+            <th>Pickup-Location</th>
+            <th>Drop-Location</th>
+            <th>Distance</th>
+            <th>Fare
             </th>
         </tr>    
 
@@ -75,10 +75,10 @@ if (!isset($_SESSION['userdata'])) {
                         <?php echo $value['to'];?>
                    </td>
                    <td>
-                        <?php echo $value['total_distance'];?>
+                        <?php echo $value['total_distance'];?> km
                    </td>
                    <td>
-                        <?php echo $value['total_fare'];?>
+                        <?php echo $value['total_fare'];?> rs
                    </td>                
                    
                </tr>
@@ -87,7 +87,7 @@ if (!isset($_SESSION['userdata'])) {
         <tr>
         <th colspan="4"><h2>Total Money Spent on Cab</h2></th>
         <td>
-                  <p> <?php    echo $data['ex']; ?> rs.</p> 
+                  <h2> <?php    echo $data['ex']; ?> rs.</h2> 
                    </td>
 
         </tr>

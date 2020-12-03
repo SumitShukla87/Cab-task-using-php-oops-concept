@@ -64,8 +64,10 @@ $viewdata = new Rides();
             <th>Drop-Location</th>
             <th>Total Distance</th>
             <th>Luggage</th>
+            <th>Fare</th>
             <th>Status</th>
             <th>Delete Ride</th>
+
             
         </tr>
 <?php
@@ -79,6 +81,10 @@ foreach ($sort as $key =>$ride) {
                     <td><?php echo $ride['to']?></td>
                     <td><?php echo $ride['total_distance']?>km</td>
                     <td><?php echo $ride['luggage']?>kg</td>
+                    <td>
+                        <?php echo $ride['total_fare'];        
+                        ?> rs.
+               </td>
                     <td><?php $status = $ride['status'];
 
                     if ($status==1) {

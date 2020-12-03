@@ -121,7 +121,7 @@ $id = $_SESSION['userdata']['uid'];
                         ?>
                    </td>
                    <td>
-                        <?php echo $value['total_fare'];?>
+                        <?php echo $value['total_fare'];?> rs
                    </td>
                    <td>
                         <?php $status = $value['status'];

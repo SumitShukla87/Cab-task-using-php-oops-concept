@@ -65,13 +65,17 @@ require "../class/Rides.php";
           </tr>
           <tr>
                <th>Luggage</th>
-               <td>  <?php echo $value['luggage'];?></td>
+               <td>  <?php echo $value['luggage'];?> kg</td>
+          </tr>
+          <tr>
+               <th>Total Distance</th>
+               <td>  <?php echo $value['total_distance'];?> km</td>
           </tr>
           <tr>
                <th>Fare</th>
                <td>
-                        <?php echo $value['total_fare'];         
-                        ?>
+                        <?php echo $value['total_fare'];        
+                        ?> rs.
                </td>
           </tr>
                    

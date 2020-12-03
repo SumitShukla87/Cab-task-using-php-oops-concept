@@ -116,7 +116,7 @@ if (!isset($_SESSION['userdata'])) {
                         ?>
                    </td>
                    <td>
-                    <?php echo $value['total_fare'];?>
+                    <?php echo $value['total_fare'];?> rs
                    </td>
                    <td>
                         <?php $status = $value['status'];

@@ -125,7 +125,7 @@ if (!isset($_SESSION['userdata'])) {
                         ?>
                    </td>
                    <td>
-                        <?php echo $value['total_fare'];?>
+                        <?php echo $value['total_fare'];?> rs
                    </td>
                    <td><a href="cancelride.php?id=<?php echo $value['ride_id']?>" class="delete-css">Cancel Ride</a></td>
                                    

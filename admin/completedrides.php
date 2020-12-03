@@ -36,10 +36,10 @@ require "../class/Rides.php";
             ?>
         <table>
         <tr>
-            <th colspan="9"><h2>-:-Completed Rides of Users-:-</h2></th> 
+            <th colspan="10"><h2>-:-Completed Rides of Users-:-</h2></th> 
         </tr>
         <tr>
-            <th colspan="9">
+            <th colspan="10">
             <ul>
                     <li class="dropdown">
                         <a href="completedrides.php?value=`customer_user_id`"class="dropbtn approve-css">Sort Data</a>
@@ -59,6 +59,7 @@ require "../class/Rides.php";
         <th>Total Distance</th>
         <th>Luggage</th>
         <th>Date</th>
+        <th>Fare</th>
         <th>Status</th>
         <th>See Invoice</th>
 <?php
@@ -72,6 +73,10 @@ foreach ($details as $key =>$ride) {
                     <td><?php echo $ride['total_distance']?> km</td>
                     <td><?php echo $ride['luggage']?> kg</td>
                     <td><?php echo $ride['ride_date']?></td>
+                    <td>
+                        <?php echo $ride['total_fare'];        
+                        ?> rs.
+                    </td>
                     <td><?php $status = $ride['status'];
                     if ($status==2) {
                         echo "Completed";
