@@ -25,12 +25,12 @@ if (isset($_POST['add'])) {
 <table>
     <tr>
         <td>Location Name:</td>
-        <td><input type="text" name="lname"></td>
+        <td><input type="text" name="lname" class="nameclass" required></td>
         
     </tr>
     <tr>
         <td>Distance from Charbagh:</td>
-        <td><input type="text" name="dis"></td>
+        <td><input type="text" name="dis" class="lug" required></td>
         
     </tr>
     <tr>
@@ -38,4 +38,6 @@ if (isset($_POST['add'])) {
     </tr>
 </table>
 </form>
+<script src="../script/jquery-3.5.1.min.js"></script>
+<script src="../script/cabscript.js"></script>
 </div>

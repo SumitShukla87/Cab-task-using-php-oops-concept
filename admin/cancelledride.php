@@ -23,7 +23,7 @@ require "../class/Rides.php";
 ?>
     <div id="wrapper">
 
-        <h2>-:-List of Cancelled Rides of Users-:-</h2>
+        
             <?php
 
             if (isset($_GET['value'])) {
@@ -35,7 +35,9 @@ require "../class/Rides.php";
                         $viewdata = new Rides();
                        $details= $viewdata->cancel_ride_user($name, $db->conn);
             ?>
-        <table class='view-table-css'>
+        <table>
+        <tr>
+        <th colspan="9"><h2>-:-List of Cancelled Rides of Users-:-</h2></th></tr>
         <tr>
             <th colspan="9">
                 <ul>

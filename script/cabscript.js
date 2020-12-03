@@ -76,7 +76,7 @@ $(document).ready(function () {
                 },
                 success: function (result) {
                     $("#res").show();
-                    $("#res").html("Total fare Is: " + result);
+                    $("#res").html("Total fare Is: " + result +" rs");
                     $("#book").show();
                 },
                 error: function () {
