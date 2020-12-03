@@ -86,7 +86,7 @@ if (isset($_POST['register'])) {
                     </tr>
                     <tr>
                         <td><label for="fullname">Full-Name</label></td>
-                        <td><input type="text" class="signup-elements" name="fname" id="fname" placeholder="Full-name" required>
+                        <td><input type="text" class="signup-elements nameclass" name="fname" id="fname" placeholder="Full-name" required>
                         </td>
                     </tr>
                     <tr>
