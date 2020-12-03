@@ -22,7 +22,7 @@ $db = new Dbcon();
 if (!isset($_SESSION['begin'])) {
     $_SESSION['begin'] = time();
 
-} elseif (time()-$_SESSION['begin']>10) {
+} elseif (time()-$_SESSION['begin']>120) {
     unset($_SESSION['book']);
 
 }
