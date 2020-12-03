@@ -23,9 +23,9 @@ if (isset($_SESSION['userdata'])) {?>
                         <?php if (isset($_SESSION['book'])) {?>
                         <li>
                             <a href="confirm.php">Confirm Booking</a>
-                        </li>
+                         </li>
                         <?php } ?>
-                       <li>
+                        <li>
                             <a href="viewexp.php?value=`ride_id`">View Expenses</a>
                         </li>
                         <li>
