@@ -112,6 +112,7 @@ class Location
         $sql = "UPDATE  `tbl_location` SET `name`='".$place."' , `distance`='".$distance."'   where `id`='".$id."'";
 
         if ($conn->query($sql) === true) {
+            
             header("location:viewlocation.php");
         } else {
             echo $conn->error;

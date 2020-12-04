@@ -15,13 +15,13 @@ $data = new Location();
 
 ?><?php
 if (isset($_POST['add'])) {
-    $location = isset($_POST['lname'])?$_POST['lname']:'';
+    $location = strtolower(isset($_POST['lname'])?$_POST['lname']:'');
     $distance = isset($_POST['dis'])?$_POST['dis']:'';
     $status = 1;
 
     $total_data =$data->showduplicacy($db->conn);
     foreach ($total_data as $key=>$value) {
-        $dblocation = $value['name'];
+        $dblocation = strtolower($value['name']);
         if ($dblocation == $location) {
             $errors[] = array('input'=>'form','msg'=>'Location already exists');
         }
@@ -46,7 +46,7 @@ if (isset($_POST['add'])) {
 <table>
     <tr>
         <td>Location Name:</td>
-        <td><input type="text" name="lname" id="lname" required></td>
+        <td><input type="text" name="lname" id="lname"  required></td>
         
     </tr>
     <tr>
