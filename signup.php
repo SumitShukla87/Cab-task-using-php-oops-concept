@@ -81,7 +81,7 @@ if (isset($_POST['register'])) {
                     </tr>
                     <tr>
                         <td><label for="username">Username</label><p></p></td>
-                        <td><input type="text" class="signup-elements" name="uname" id="uname" placeholder="User-name" title="Please Enter Only in Alpha numeric format Only Underscore is allowed" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" required>
+                        <td><input type="text" class="signup-elements" name="uname" id="uname" placeholder="User-name" title="Please Enter in format like: user_11" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" required>
                         </td> 
                     </tr>
                     <tr>
