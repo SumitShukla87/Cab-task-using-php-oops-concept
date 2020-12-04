@@ -22,7 +22,7 @@ if (!isset($_SESSION['userdata'])) {
             <?php
             
             if (isset($_SESSION['book'])) {
-                 echo "<script>alert('Please Confirm Your Booking Request within 2 Minutes from the booking time Otherwise data will be Lost')</script>";
+                 echo "<script>alert('Please Confirm Your Booking Request  as Soon as Possible Otherwise data will be Lost')</script>";
                               
             }
              $ridedata = new Rides();
@@ -89,10 +89,10 @@ if (!isset($_SESSION['userdata'])) {
             </tr>     
 
         <?php
-        } else {
-            
-                header("location:userdashboard.php");
-            }
+     } else {
+          
+          header("location:userdashboard.php");
+     }
 }?>
 </table>
 </form>

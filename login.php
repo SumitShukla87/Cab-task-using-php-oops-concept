@@ -15,6 +15,10 @@ require "class/Dbcon.php";
 require_once "class/Users.php";
 require_once "class/Rides.php";
 require "header.php";
+if (isset($_SESSION['userdata']) || isset($_SESSION['admin'])) {
+    echo"<script>Please Logout before open Login Page</script>";
+    header("location:logout.php");
+}
 ?>
 <?php
 if (!isset($_SESSION['begin'])) {

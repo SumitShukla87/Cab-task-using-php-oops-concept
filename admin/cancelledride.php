@@ -92,9 +92,9 @@ foreach ($details as $key =>$ride) {
                         <?php echo $ride['total_fare']; ?> rs.
                </td>
                     <td><?php $status = $ride['status'];
-                if ($status==0) {
-                    echo "Cancelled";
-                } ?>
+                    if ($status==0) {
+                        echo "Cancelled";
+                    } ?>
                     </td>
               </tr>
 <?php

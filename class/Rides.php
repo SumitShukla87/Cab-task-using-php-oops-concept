@@ -157,7 +157,7 @@ VALUES ('".$date."','".$pickup."','".$drop."','".$cab."','".$distance."','".$lug
     {
         $sql = "UPDATE  `tbl_ride` SET `status`='".$accept."' where `ride_id`='".$id."'";
         if ($conn->query($sql) === true) {
-            header("location:riderequest.php");
+            header("location:pendingride.php");
         } else {
             echo $conn->error;
         }

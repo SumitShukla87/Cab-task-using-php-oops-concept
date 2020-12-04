@@ -131,4 +131,18 @@ class Location
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
     }
+    /** */
+    public function showduplicacy($conn)
+    {
+        $a=array();
+        $sql = "SELECT * from `tbl_location`";
+         
+        $result =$conn->query($sql);
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                array_push($a, $row);
+            }
+            return $a;
+        }
+    }
 }

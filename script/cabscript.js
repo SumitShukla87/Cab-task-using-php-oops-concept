@@ -51,7 +51,21 @@ $(document).ready(function () {
             }
         }
     });
+    $("#uname").keyup(function() {
+        $(this).val($(this).val().replace(/\s/g, ""));
+    });
+    $("#lname").keyup(function() {
+        $(this).val($(this).val().replace(/\s/g, ""));
+    });
 
+    $("input[name=mobile]").on("change paste " , function(e){
+        var myval = $(this).val();
+    
+        if(myval.length < 10 || myval.length > 10) {
+             alert("Mobile must  only contain 10 characters.");
+             $(this).focus();
+        }
+   });
 
     $("#btn2").click(function (e) {
         var p = $("#pick").val();

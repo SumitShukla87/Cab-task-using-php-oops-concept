@@ -69,7 +69,7 @@ if (isset($_POST['register'])) {
 
 </div>
         <div id="bg-signup">
-        <form action="" name="signup_form" method="POST" onsubmit="return validateForm()">
+        <form action=""  method="POST">
            
                 <table id="reg-form">
                     <tr>
@@ -91,7 +91,7 @@ if (isset($_POST['register'])) {
                     </tr>
                     <tr>
                         <td> <label for="mobile">Mobile No</label><p></p></td>
-                        <td> <input type="text" class="mobile signup-elements" name="mobile" id="mobile" placeholder="Mobile" required>
+                        <td> <input type="number" class="mobile signup-elements" name="mobile" id="mobile" placeholder="Mobile (10 digits)" required>
                         </td>
                     </tr>
                     <tr>

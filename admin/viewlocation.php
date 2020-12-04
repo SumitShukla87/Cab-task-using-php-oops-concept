@@ -22,6 +22,7 @@ require "../class/Location.php";
 require "../class/Dbcon.php";
 $db = new Dbcon();
 $data = new Location();
+$errors = array();
 ?>
 <div id="wrapper">
 <?php
@@ -31,8 +32,16 @@ if (isset($_POST['update'])) {
     $place = isset($_POST['place'])?$_POST['place']:'';
     $distance = isset($_POST['distance'])?$_POST['distance']:'';
 
-
-    $data->updatelocation($id, $place, $distance, $db->conn);
+    $total_data =$data->showduplicacy($db->conn);
+    foreach ($total_data as $key=>$value) {
+        $dblocation = $value['name'];
+        if ($dblocation == $place) {
+            $errors[] = array('input'=>'form','msg'=>'Location already exists');
+        }
+    }
+    if (sizeof($errors)==0) {
+        $data->updatelocation($id, $place, $distance, $db->conn);
+    }
 }
 if (isset($_POST['block'])) {
     $id = isset($_POST['id'])?$_POST['id']:'';
@@ -61,6 +70,17 @@ if (isset($_GET['value'])) {
 }
 $locations =$data->viewlocation($name, $db->conn);
     ?>
+
+
+<div id="error">
+
+<?php if (sizeof($errors) > 0) : ?>
+    <?php foreach ($errors as $error):?>
+        <?php echo'<script>alert("'.$error['msg'].'")</script>'?> 
+    <?php endforeach?> 
+<?php endif; ?>
+
+</div>
     <form action="" method="GET">
         <table class='view-table-css'>
         <tr>
@@ -126,7 +146,6 @@ $locations =$data->viewlocation($name, $db->conn);
 
    
 
-    // $locations =$data->viewlocation($db->conn);
 foreach ($locations as $key =>$udetails) {
     ?>
         <form action="" method="POST">
