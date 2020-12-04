@@ -37,62 +37,62 @@ if (!isset($_SESSION['userdata'])) {
                     header("location:userdashboard.php");
                 }
            
-            
-                $db = new Dbcon();
-                $viewdata = new Rides(); ?>
-            <form action="" method="POST">
-        <table class='view-table-css'>
-         <tr>
-              <th colspan="2"><h2>-:- Confirmation OF the Booking  -:-</h2></th>
-         </tr>
-          <tr>
-               <th>Pickup-Location</th>
-                   <td>
-                        <?php echo $_SESSION['book']['pickup']; ?>
-                   </td>
-          </tr>
-          <tr>
-               <th>Drop Location</th>
-               <td>
-                    <?php echo $_SESSION['book']['drop']; ?>
-               </td>         
-          
-          </tr>      
-          <tr>
-               <th>Distance</th>
-               <td>
-                    <?php echo  $_SESSION['book']['distance']; ?>km
-               </td>
-          
-          </tr>   
-          <tr>
-               <th>Fare:</th>
-               <td>
-                    <?php echo $_SESSION['book']['fare']; ?>rs.
-               </td>
-          </tr>
-          <tr>
-               <th>Luggage</th>
-               <td>
-                    <?php echo $_SESSION['book']['luggage']; ?>kg
-               </td>
+                    
+                         $db = new Dbcon();
+                         $viewdata = new Rides(); ?>
+                    <form action="" method="POST">
+                    <table class='view-table-css'>
+                    <tr>
+                         <th colspan="2"><h2>-:- Confirmation OF the Booking  -:-</h2></th>
+                    </tr>
+                         <tr>
+                              <th>Pickup-Location</th>
+                              <td>
+                                   <?php echo $_SESSION['book']['pickup']; ?>
+                              </td>
+                         </tr>
+                         <tr>
+                              <th>Drop Location</th>
+                              <td>
+                                   <?php echo $_SESSION['book']['drop']; ?>
+                              </td>         
+                         
+                         </tr>      
+                         <tr>
+                              <th>Distance</th>
+                              <td>
+                                   <?php echo  $_SESSION['book']['distance']; ?>km
+                              </td>
+                         
+                         </tr>   
+                         <tr>
+                              <th>Fare:</th>
+                              <td>
+                                   <?php echo $_SESSION['book']['fare']; ?>rs.
+                              </td>
+                         </tr>
+                         <tr>
+                              <th>Luggage</th>
+                              <td>
+                                   <?php echo $_SESSION['book']['luggage']; ?>kg
+                              </td>
 
-          </tr>
-          
-            <tr>
-                <td>
-                    <input type="submit" value="No" name="no">
-                </td>
-                <td>
-                <input type="submit" value="Yes" name="yes">
-                </td>
-            </tr>     
+                         </tr>
+                         
+                         <tr>
+                              <td>
+                                   <input type="submit" value="No" name="no">
+                              </td>
+                              <td>
+                              <input type="submit" value="Yes" name="yes">
+                              </td>
+                         </tr>     
 
-        <?php
-     } else {
+
+            <?php       } else {
           
-          header("location:userdashboard.php");
-     }
+                                   header("location:userdashboard.php");
+                              }
 }?>
 </table>
 </form>
