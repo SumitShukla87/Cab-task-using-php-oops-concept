@@ -46,7 +46,7 @@ if (isset($_POST['add'])) {
 <table>
     <tr>
         <td>Location Name:</td>
-        <td><input type="text" name="lname" id="lname"  required></td>
+        <td><input type="text" name="lname" id="lname" title="Only Enter AlphaNumeric" pattern="[a-zA-Z-]+[a-zA-Z0-9\s]*"  required></td>
         
     </tr>
     <tr>
