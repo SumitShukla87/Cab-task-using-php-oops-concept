@@ -44,8 +44,10 @@ $id = $_SESSION['userdata']['uid'];
                                    <div class="dropdown1">
                                         <a href="viewrides.php" class="dropbtn approve-css">Sort Data</a>
                                         <div class="dropdown-content1">
-                                             <a  href="viewrides.php?filter=luggage" >By Luggage</a>
-                                             <a  href="viewrides.php?filter=distance">By Distance</a> 
+                                             <a  href="viewrides.php?filter=fareasc" >By Fare(ASC)</a>
+                                             <a  href="viewrides.php?filter=faredesc">By Fare(DESC)</a>
+                                             <a  href="viewrides.php?filter=dateasc" >By Date(ASC)</a>
+                                             <a  href="viewrides.php?filter=datedesc">By Date(DESC)</a> 
                                         </div>
                                    </div>     
                               </li>

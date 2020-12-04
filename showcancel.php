@@ -40,8 +40,10 @@ if (!isset($_SESSION['userdata'])) {
                                    <div class="dropdown1">
                                         <a href="showcancel.php" class="dropbtn approve-css">Sort Data</a>
                                         <div class="dropdown-content1">
-                                             <a  href="showcancel.php?filter=luggage" >By Luggage</a>
-                                             <a  href="showcancel.php?filter=distance">By Distance</a> 
+                                             <a  href="showcancel.php?filter=fareasc" >By Fare(ASC)</a>
+                                             <a  href="showcancel.php?filter=faredesc">By Fare(DESC)</a> 
+                                             <a  href="showcancel.php?filter=dateasc" >By Date(ASC)</a>
+                                             <a  href="showcancel.php?filter=datedesc">By Date(DESC)</a> 
                                         </div>
                                    </div>     
                               </li>

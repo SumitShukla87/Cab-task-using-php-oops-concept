@@ -118,7 +118,6 @@ require "../class/Dbcon.php";?>
                     </div>
                 </a>     
                 </div>
-            </div>   
+            </div>  
+            <?php require "footer.php"; ?> 
         </div>
-    </body>
-</html>

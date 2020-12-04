@@ -27,15 +27,15 @@ require "../class/Rides.php";
 
       
             <?php
-            if (isset($_GET['value'])) {
-                $name = isset($_GET['value'])?$_GET['value']:'';
+            if (isset($_GET['filter'])) {
+                 $filterby = isset($_GET['filter'])?$_GET['filter']:'';
             } else {
-                $name='customer_user_id';
+                 $filterby ='';
             }
 
                         $db = new Dbcon();
                         $viewdata = new Rides();
-                       $details= $viewdata->riderequest($name, $db->conn);
+                       $details= $viewdata->riderequest($filterby, $db->conn);
             ?>
         <table>
         <tr>
@@ -47,9 +47,25 @@ require "../class/Rides.php";
                     <li class="dropdown">
                         <a href="riderequest.php"class="dropbtn approve-css">Sort Data</a>
                         <div class="dropdown-content">
-                            <a  href="riderequest.php?value=`luggage`" class="dropdown-content1">By Luggage</a>
-                            <a  href="riderequest.php?value=`ride_date`" class="dropdown-content1">By Date</a>
-                            <a  href="riderequest.php?value=`total_distance`" class="dropdown-content1">By Distance</a>
+                            <a  href="riderequest.php?filter=fareasc" class="dropdown-content1">By Fare(ASC)</a>
+                            <a  href="riderequest.php?filter=ride_dateasc" class="dropdown-content1">By Date(ASC)</a>
+                            <a  href="riderequest.php?filter=total_distanceasc" class="dropdown-content1">By Distance(ASC)</a>
+                            <a  href="riderequest.php?filter=faredesc" class="dropdown-content1">By Fare(DESC)</a>
+                            <a  href="riderequest.php?filter=ride_datedesc" class="dropdown-content1">By Date(DESC)</a>
+                            <a  href="riderequest.php?filter=total_distancedesc" class="dropdown-content1">By Distance(DESC)</a>
+                        
+                        </div>
+                    </li>
+                </ul></td>
+        </tr>
+        <tr>
+            <td colspan="10"> <ul>
+                    <li class="dropdown">
+                        <a href="riderequest.php"class="dropbtn approve-css">Filter Data</a>
+                        <div class="dropdown-content">
+                            <a  href="riderequest.php?filter=week" class="dropdown-content1">By Week</a>
+                            <a  href="riderequest.php?filter=month" class="dropdown-content1">By Month</a>
+                            <a  href="riderequest.php" class="dropdown-content1">No Filter</a>
                         </div>
                     </li>
                 </ul></td>
@@ -88,5 +104,5 @@ foreach ($details as $key =>$ride) {
 
 </table>
                                 
-       
+<?php require "footer.php"; ?>  
     </div>

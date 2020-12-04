@@ -1,10 +1,12 @@
   body{
+    height:100%;
     margin:0 ;
     padding: 0;
   }
   #wrapper{
     margin-left: 200px;
     padding: 1px 16px;
+
   } 
   #admin-bg{
     background-color: aqua;
@@ -206,3 +208,30 @@ header{
   background-color: rgb(194, 175, 7);
   color: black;
 } 
+
+.icon{
+  font-size:30px;
+}
+footer {
+  
+  margin-top: 15%;
+  float: right;
+  bottom: 0%;
+  position: relative;
+  display: block;
+}
+
+footer a{
+  text-decoration: none;
+  color: chocolate;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+input[type="number"] {
+  -moz-appearance:textfield;
+}

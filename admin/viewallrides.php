@@ -29,31 +29,43 @@ $viewdata = new Rides();
 
     <?php
     
-    if (isset($_GET['value'])) {
-        $name = isset($_GET['value'])?$_GET['value']:'';
+    if (isset($_GET['filter'])) {
+        $filterby = isset($_GET['filter'])?$_GET['filter']:'';
     } else {
-        $name='customer_user_id';
+         $filterby ='';
     }
-    $sort= $viewdata->sortdata($name, $db->conn);
+    $sort= $viewdata->sortdata($filterby, $db->conn);
     ?>
     <form action="" method="GET">
         <table class='view-table-css'>
         <tr>
-            <th colspan="9">
-                <ul>
+            <th colspan="10">
+            <ul>
                     <li class="dropdown">
-                        <a href="viewallrides.php?value=`customer_user_id`"class="dropbtn approve-css">Sort Data</a>
+                        <a href="viewallrides.php"class="dropbtn approve-css">Sort Data</a>
                         <div class="dropdown-content">
-                            <a  href="viewallrides.php?value=`luggage`" class="dropdown-content1">Luggage</a>
-                            <a  href="viewallrides.php?value=`total_distance`" class="dropdown-content1">Distance</a>
-                            <a  href="viewallrides.php?value=`status`" class="dropdown-content1">Status</a>
+                            <a  href="viewallrides.php?filter=fareasc" class="dropdown-content1">By Fare(ASC)</a>
+                            <a  href="viewallrides.php?filter=total_distanceasc" class="dropdown-content1">By Distance(ASC)</a>
+                            <a  href="viewallrides.php?filter=faredesc" class="dropdown-content1">By Fare(DESC)</a>
+                            <a  href="viewallrides.php?filter=total_distancedesc" class="dropdown-content1">By Distance(DESC)</a>
                         
                         </div>
                     </li>
                 </ul>
-            </th>
+            </th> 
         </tr>
-
+        <tr>
+            <td colspan="10"> <ul>
+                    <li class="dropdown">
+                        <a href="riderequest.php"class="dropbtn approve-css">Filter Data</a>
+                        <div class="dropdown-content">
+                            <a  href="viewallrides.php?filter=week" class="dropdown-content1">By Week</a>
+                            <a  href="viewallrides.php?filter=month" class="dropdown-content1">By Month</a>
+                            <a  href="viewallrides.php" class="dropdown-content1">No Filter</a>
+                        </div>
+                    </li>
+                </ul></td>
+        </tr>
         <tr>
             <th colspan="9"><h2>-:-All Rides of Users-:-</h2></th> 
         </tr>
@@ -108,5 +120,5 @@ foreach ($sort as $key =>$ride) {
 
 </table>
 </form>                    
-       
+<?php require "footer.php"; ?>    
     </div>

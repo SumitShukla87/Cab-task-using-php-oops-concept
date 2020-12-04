@@ -44,8 +44,10 @@ if (!isset($_SESSION['userdata'])) {
                                    <div class="dropdown1">
                                         <a href="completedride.php" class="dropbtn approve-css">Sort Data</a>
                                         <div class="dropdown-content1">
-                                             <a  href="completedride.php?filter=luggage" >By Luggage</a>
-                                             <a  href="completedride.php?filter=distance">By Distance</a> 
+                                             <a  href="completedride.php?filter=fareasc" >By Fare(ASC)</a>
+                                             <a  href="completedride.php?filter=faredesc">By Fare(DESC)</a> 
+                                             <a  href="completedride.php?filter=dateasc" >By Date(ASC)</a>
+                                             <a  href="completedride.php?filter=datedesc">By Date(DESC)</a> 
                                         </div>
                                    </div>     
                               </li>

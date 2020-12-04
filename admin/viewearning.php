@@ -40,5 +40,5 @@ require "../class/Dbcon.php";
         </tr>
 
     </table>
-
+    <?php require "footer.php"; ?>
 </div>

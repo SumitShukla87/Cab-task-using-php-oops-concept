@@ -28,26 +28,61 @@ require "../class/Users.php";
        
             <?php
 
+            if (isset($_GET['filter'])) {
+                $filterby = isset($_GET['filter'])?$_GET['filter']:'';
+            } else {
+                $filterby ='';
+            }
+
                         $db = new Dbcon();
                         $viewdata = new Users();
-                       $details= $viewdata->viewrequest($db->conn);
+                       $details= $viewdata->viewrequest($filterby, $db->conn);
             ?>
         <table class='view-table-css'>
         <tr>
-            <td colspan="5"> <h2>-:-Login Request of Users-:-</h2></td>
+            <td colspan="6"> <h2>-:-Login Request of Users-:-</h2></td>
         </tr>
         <tr>
-        <th class='view-table-css-td'>ID</th>
-        <th class='view-table-css-td'>User-Name</th>
-        <th class='view-table-css-td'>Name</th>
-        <th class='view-table-css-td'>Approve Request</th>
-        <th class='view-table-css-td'>Delete Request</th></tr>
+            <td colspan="6"> <ul>
+                    <li class="dropdown">
+                        <a href="viewrequest.php"class="dropbtn approve-css">Sort Data</a>
+                        <div class="dropdown-content">
+
+                            <a  href="viewrequest.php?filter=dateasc" class="dropdown-content1">By Date(ASC)</a>
+                            <a  href="viewrequest.php?filter=datedesc" class="dropdown-content1">By Date(DESC)</a>
+                            <a  href="viewrequest.php?filter=nameasc" class="dropdown-content1">By Name(ASC)</a>
+                            <a  href="viewrequest.php?filter=namedesc" class="dropdown-content1">By Name(DESC)</a>
+                        
+                        </div>
+                    </li>
+                </ul></td>
+        </tr>
+        <tr>
+            <td colspan="6"> <ul>
+                    <li class="dropdown">
+                        <a href="viewrequest.php"class="dropbtn approve-css">Filter Data</a>
+                        <div class="dropdown-content">
+                            <a  href="viewrequest.php?filter=week" class="dropdown-content1">By Week</a>
+                            <a  href="viewrequest.php?filter=month" class="dropdown-content1">By Month</a>
+                            <a  href="viewrequest.php" class="dropdown-content1">No Filter</a>
+                        </div>
+                    </li>
+                </ul></td>
+        </tr>
+        <tr>
+        <th>ID</th>
+        <th>User-Name</th>
+        <th>Name</th>
+        <th>Request Date</th>
+        <th>Approve Request</th>
+        <th>Delete Request</th></tr>
 <?php
 foreach ($details as $key =>$udetails) {?>
                 <tr>
-                <td class='view-table-css-td'><?php echo $udetails['user_id']?></td>        
-             <td class='view-table-css-td'><?php echo $udetails['user_name']?></td>
-             <td class='view-table-css-td'><?php echo $udetails['name']?></td>        
+                <td><?php echo $udetails['user_id']?></td>        
+             <td><?php echo $udetails['user_name']?></td>
+             <td><?php echo $udetails['name']?></td>      
+             <td><?php echo $udetails['dateofsignup']?></td>  
               <td><a href="approverequest.php?id=<?php echo $udetails['user_id']?>" class="approve-css">Approve Request</a></td>
             <td><a href="deleterequest.php?id=<?php echo $udetails['user_id']?>" class="delete-css">Delete Request</a></td>
             </tr>
@@ -57,5 +92,5 @@ foreach ($details as $key =>$udetails) {?>
 
 </table>
                                 
-       
+<?php require "footer.php"; ?>    
     </div>

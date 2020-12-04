@@ -47,7 +47,6 @@ class Users
                     if ($row['is_admin']==1) {
                         header('location:admin/dashboard.php');
                         $_SESSION['admin'] = $row['user_name'];
-
                     } elseif ($row['is_admin']==0) {
                         $_SESSION['userdata'] = array('username'=>$row['user_name'],'uid'=>$row['user_id']);
                         header('location:userdashboard.php');
@@ -58,7 +57,6 @@ class Users
                 }
             }
         } else {
-            
             echo "<script>alert('Please Enter valid Login Details!!!');</script>";
         }
     }
@@ -66,10 +64,25 @@ class Users
      * Function_For_Show_Show User Request
      */
 
-    public function viewrequest($conn)
+    public function viewrequest($filterby, $conn)
     {
         $a=array();
-        $sql = "SELECT * from `tbl_user`";
+
+        if ($filterby == "dateasc") {
+            $sql= "SELECT * FROM `tbl_user`  ORDER BY CAST(`dateofsignup` AS UNSIGNED ) ASC";
+        } elseif ($filterby == "datedesc") {
+            $sql= "SELECT * FROM `tbl_user`  ORDER BY CAST(`dateofsignup` AS UNSIGNED ) DESC";
+        } elseif ($filterby == "nameasc") {
+            $sql= "SELECT * FROM `tbl_user`  ORDER BY `name` ASC";
+        } elseif ($filterby == "namedesc") {
+            $sql= "SELECT * FROM `tbl_user`  ORDER BY `name` DESC";
+        } elseif ($filterby == "week") {
+            $sql = "SELECT * FROM `tbl_user`  Where  `dateofsignup`> DATE_SUB(curdate(),INTERVAL 1 WEEK)";
+        } elseif ($filterby == "month") {
+            $sql = "SELECT * FROM `tbl_user`  Where `dateofsignup`> DATE_SUB(curdate(),INTERVAL 1 MONTH)";
+        } else {
+            $sql= "SELECT * FROM `tbl_user` ";
+        }
          
         $result =$conn->query($sql);
         if ($result->num_rows > 0) {
@@ -119,21 +132,19 @@ class Users
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
             return $row;
-        } 
+        }
     }
     /**
      * Function for updation of the User
      */
-    public function update($uname, $name, $mobile,$conn)
+    public function update($uname, $name, $mobile, $conn)
     {
-      
-            $sql = "UPDATE  `tbl_user` SET `name`='".$name."' , `mobile`='".$mobile."' where `user_name`='".$uname."'";
+        $sql = "UPDATE  `tbl_user` SET `name`='".$name."' , `mobile`='".$mobile."' where `user_name`='".$uname."'";
         if ($conn->query($sql) === true) {
             header("location:viewuser.php");
         } else {
             echo'<script>alert("'.$conn->error.'")</script>';
         }
-       
     }
     /**
      * Function for Change the Password dof the user
@@ -162,7 +173,6 @@ class Users
             $row = $result->fetch_assoc();
             return $row;
         }
-
     }
     /**
      * Show Pending User Request To Admin Dashboard
@@ -175,7 +185,6 @@ class Users
             $row = $result->fetch_assoc();
             return $row;
         }
-
     }
     /**
      * Show All Count of User
@@ -188,17 +197,33 @@ class Users
             $row = $result->fetch_assoc();
             return $row;
         }
-
     }
 
     /**
      * Function to show All rides of user to the admin
-     * 
+     *
      */
-    public function showuser($name ,$conn)
+    public function showuser($filterby, $conn)
     {
         $a=array();
-        $sql = "SELECT * from `tbl_user` WHERE `is_admin`= 0 ORDER BY CAST($name AS UNSIGNED ) ASC ";
+       
+        if ($filterby == "dateasc") {
+            $sql= "SELECT * FROM `tbl_user`  ORDER BY CAST(`dateofsignup` AS UNSIGNED ) ASC";
+        } elseif ($filterby == "datedesc") {
+            $sql= "SELECT * FROM `tbl_user`  ORDER BY CAST(`dateofsignup` AS UNSIGNED ) DESC";
+        } elseif ($filterby == "nameasc") {
+            $sql= "SELECT * FROM `tbl_user`  ORDER BY `name` ASC";
+        } elseif ($filterby == "namedesc") {
+            $sql= "SELECT * FROM `tbl_user`  ORDER BY `name` DESC";
+        } elseif ($filterby == "status") {
+            $sql= "SELECT * FROM `tbl_user`  ORDER BY `isblock` ASC";
+        } elseif ($filterby == "week") {
+            $sql = "SELECT * FROM `tbl_user`  Where  `dateofsignup`> DATE_SUB(curdate(),INTERVAL 1 WEEK)";
+        } elseif ($filterby == "month") {
+            $sql = "SELECT * FROM `tbl_user`  Where `dateofsignup`> DATE_SUB(curdate(),INTERVAL 1 MONTH)";
+        } else {
+            $sql= "SELECT * FROM `tbl_user` ";
+        }
          
         $result =$conn->query($sql);
         if ($result->num_rows > 0) {
@@ -206,8 +231,7 @@ class Users
                 $check_user = $row['is_admin'];
                 if ($check_user == 0) {
                     array_push($a, $row);
-
-                }                
+                }
             }
             return $a;
         }
@@ -240,8 +264,8 @@ class Users
         }
     }
 
-     /**
-     *  Function for Delete the the User
+    /**
+    *  Function for Delete the the User
     */
     public function deluser($id, $conn)
     {
@@ -255,12 +279,27 @@ class Users
 
     /**
      * Function to show Approved User
-     * 
+     *
      */
-    public function showapprove($conn)
+    public function showapprove($filterby, $conn)
     {
         $a=array();
-        $sql = "SELECT * from `tbl_user` WHERE `is_admin`= 0 AND `isblock` = 1";
+        if ($filterby == "dateasc") {
+            $sql= "SELECT * FROM `tbl_user`  WHERE `is_admin`= 0 AND `isblock` = 1 ORDER BY CAST(`dateofsignup` AS UNSIGNED ) ASC";
+        } elseif ($filterby == "datedesc") {
+            $sql= "SELECT * FROM `tbl_user`  WHERE `is_admin`= 0 AND `isblock` = 1 ORDER BY CAST(`dateofsignup` AS UNSIGNED ) DESC";
+        } elseif ($filterby == "nameasc") {
+            $sql= "SELECT * FROM `tbl_user`  WHERE `is_admin`= 0 AND `isblock` = 1 ORDER BY `name` ASC";
+        } elseif ($filterby == "namedesc") {
+            $sql= "SELECT * FROM `tbl_user`   WHERE `is_admin`= 0 AND `isblock` = 1 ORDER BY `name` DESC";
+        } elseif ($filterby == "week") {
+            $sql = "SELECT * FROM `tbl_user`   WHERE `is_admin`= 0 AND `isblock` = 1 AND `dateofsignup`> DATE_SUB(curdate(),INTERVAL 1 WEEK)";
+        } elseif ($filterby == "month") {
+            $sql = "SELECT * FROM `tbl_user`  WHERE `is_admin`= 0 AND `isblock` = 1 AND `dateofsignup`> DATE_SUB(curdate(),INTERVAL 1 MONTH)";
+        } else {
+            $sql = "SELECT * from `tbl_user` WHERE `is_admin`= 0 AND `isblock` = 1";
+        }
+        
          
         $result =$conn->query($sql);
         if ($result->num_rows > 0) {
@@ -268,13 +307,9 @@ class Users
                 $check_user = $row['is_admin'];
                 if ($check_user == 0) {
                     array_push($a, $row);
-
-                }                
+                }
             }
             return $a;
         }
     }
-
-
-
 }

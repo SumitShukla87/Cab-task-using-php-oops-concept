@@ -196,4 +196,6 @@ foreach ($locations as $key =>$udetails) {
 } ?>
         
     </table> 
+    <?php require "footer.php"; ?>
 </div>
+

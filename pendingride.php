@@ -42,8 +42,11 @@ if (!isset($_SESSION['userdata'])) {
                                    <div class="dropdown1">
                                         <a href="pendingride.php" class="dropbtn approve-css">Sort Data</a>
                                         <div class="dropdown-content1">
-                                             <a  href="pendingride.php?filter=luggage" >By Luggage</a>
-                                             <a  href="pendingride.php?filter=distance">By Distance</a> 
+                                             <a  href="pendingride.php?filter=fareasc" >By Fare(Asc)</a>
+                                             <a  href="pendingride.php?filter=dateasc">By Date(Asc)</a> 
+                                             <a  href="pendingride.php?filter=faredesc" >By Fare(Desc)</a>
+                                             <a  href="pendingride.php?filter=datedesc">By Date(Desc)</a> 
+                                       
                                         </div>
                                    </div>     
                               </li>

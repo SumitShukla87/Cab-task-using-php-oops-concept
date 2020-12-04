@@ -30,11 +30,45 @@ $unblock = new Users();
     <div id="wrapper">
             <?php
 
+            if (isset($_GET['filter'])) {
+                $filterby = isset($_GET['filter'])?$_GET['filter']:'';
+            } else {
+                $filterby ='';
+            }
+
+
                         $db = new Dbcon();
                         $viewdata = new Users();
-                       $details= $viewdata->showapprove($db->conn);
+                       $details= $viewdata->showapprove($filterby, $db->conn);
             ?>
-        <table class='view-table-css'>
+        <table>
+        <tr>
+            <td colspan="6"> <ul>
+                    <li class="dropdown">
+                        <a href="approveduser.php"class="dropbtn approve-css">Sort Data</a>
+                        <div class="dropdown-content">
+
+                            <a  href="approveduser.php?filter=dateasc" class="dropdown-content1">By Date(ASC)</a>
+                            <a  href="approveduser.php?filter=datedesc" class="dropdown-content1">By Date(DESC)</a>
+                            <a  href="approveduser.php?filter=nameasc" class="dropdown-content1">By Name(ASC)</a>
+                            <a  href="approveduser.php?filter=namedesc" class="dropdown-content1">By Name(DESC)</a>
+                        
+                        </div>
+                    </li>
+                </ul></td>
+        </tr>
+        <tr>
+            <td colspan="6"> <ul>
+                    <li class="dropdown">
+                        <a href="approveduser.php"class="dropbtn approve-css">Filter Data</a>
+                        <div class="dropdown-content">
+                            <a  href="approveduser.php?filter=week" class="dropdown-content1">By Week</a>
+                            <a  href="approveduser.php?filter=month" class="dropdown-content1">By Month</a>
+                            <a  href="approveduser.php" class="dropdown-content1">No Filter</a>
+                        </div>
+                    </li>
+                </ul></td>
+        </tr>
         <tr>
                     <td colspan="6">
                     <h2>-:-List of Approved Users-:-</h2>                    
@@ -81,5 +115,5 @@ foreach ($details as $key =>$ride) {
 
 </table>
                                 
-       
+<?php require "footer.php"; ?>      
     </div>

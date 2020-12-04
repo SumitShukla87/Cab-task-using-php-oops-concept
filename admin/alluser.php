@@ -46,30 +46,42 @@ if (isset($_POST['unblock'])) {
     $status = 1;
     $unblock->unblock($uid, $status, $db->conn);    
 }?><?php
-if (isset($_GET['value'])) {
-    $name = isset($_GET['value'])?$_GET['value']:'';
-
+if (isset($_GET['filter'])) {
+    $filterby = isset($_GET['filter'])?$_GET['filter']:'';
 } else {
-    $name='user_id';
+    $filterby ='';
 }
 
-    $details= $unblock->showuser($name, $db->conn);
+    $details= $unblock->showuser($filterby, $db->conn);
 ?>
         <table class='view-table-css'>
         <tr>
-                    <td colspan="8">
-                    <ul>
+            <td colspan="8"> <ul>
                     <li class="dropdown">
                         <a href="alluser.php"class="dropbtn approve-css">Sort Data</a>
                         <div class="dropdown-content">
-                            <a  href="alluser.php?value=isblock" class="dropdown-content1">By Status</a>
-                            <a  href="alluser.php?value=dateofsignup" class="dropdown-content1">By Date</a>
+
+                            <a  href="alluser.php?filter=dateasc" class="dropdown-content1">By Date(ASC)</a>
+                            <a  href="alluser.php?filter=datedesc" class="dropdown-content1">By Date(DESC)</a>
+                            <a  href="alluser.php?filter=nameasc" class="dropdown-content1">By Name(ASC)</a>
+                            <a  href="alluser.php?filter=namedesc" class="dropdown-content1">By Name(DESC)</a>
+                            <a  href="alluser.php?filter=status" class="dropdown-content1">By Status</a>
                         
-                    </div>
+                        </div>
                     </li>
-                </ul>
-                                      
-                    </td>
+                </ul></td>
+        </tr>
+        <tr>
+            <td colspan="8"> <ul>
+                    <li class="dropdown">
+                        <a href="alluser.php"class="dropbtn approve-css">Filter Data</a>
+                        <div class="dropdown-content">
+                            <a  href="alluser.php?filter=week" class="dropdown-content1">By Week</a>
+                            <a  href="alluser.php?filter=month" class="dropdown-content1">By Month</a>
+                            <a  href="alluser.php" class="dropdown-content1">No Filter</a>
+                        </div>
+                    </li>
+                </ul></td>
         </tr>
         
         <tr>
@@ -124,5 +136,5 @@ foreach ($details as $key =>$ride) {
 
 </table>
                                 
-       
+<?php require "footer.php"; ?>  
     </div>

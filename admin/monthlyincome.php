@@ -48,5 +48,5 @@ require "../class/Rides.php";
 
     </table>
 
-
+    <?php require "footer.php"; ?>
 </div>

@@ -26,30 +26,45 @@ require "../class/Rides.php";
         
             <?php
 
-            if (isset($_GET['value'])) {
-                $name = isset($_GET['value'])?$_GET['value']:'';
+            if (isset($_GET['filter'])) {
+                $filterby = isset($_GET['filter'])?$_GET['filter']:'';
             } else {
-                $name='customer_user_id';
+                $filterby ='';
             }
                         $db = new Dbcon();
                         $viewdata = new Rides();
-                       $details= $viewdata->cancel_ride_user($name, $db->conn);
+                       $details= $viewdata->cancel_ride_user($filterby, $db->conn);
             ?>
         <table>
         <tr>
         <th colspan="9"><h2>-:-List of Cancelled Rides of Users-:-</h2></th></tr>
         <tr>
             <th colspan="9">
-                <ul>
+            <ul>
                     <li class="dropdown">
-                        <a href="cancelledride.php?value=`customer_user_id`"class="dropbtn approve-css">Sort Data</a>
+                        <a href="completedrides.php"class="dropbtn approve-css">Sort Data</a>
                         <div class="dropdown-content">
-                            <a  href="cancelledride.php?value=`luggage`" class="dropdown-content1">Luggage</a>
-                            <a  href="cancelledride.php?value=`total_distance`" class="dropdown-content1">Distance</a>
+                            <a  href="cancelledride.php?filter=fareasc" class="dropdown-content1">By Fare(ASC)</a>
+                            <a  href="cancelledride.php?filter=total_distanceasc" class="dropdown-content1">By Distance(ASC)</a>
+                            <a  href="cancelledride.php?filter=faredesc" class="dropdown-content1">By Fare(DESC)</a>
+                            <a  href="cancelledride.php?filter=total_distancedesc" class="dropdown-content1">By Distance(DESC)</a>
+                        
                         </div>
                     </li>
                 </ul>
-            </th>
+            </th> 
+        </tr>
+        <tr>
+            <td colspan="9"> <ul>
+                    <li class="dropdown">
+                        <a href="riderequest.php"class="dropbtn approve-css">Filter Data</a>
+                        <div class="dropdown-content">
+                            <a  href="cancelledride.php?filter=week" class="dropdown-content1">By Week</a>
+                            <a  href="cancelledride.php?filter=month" class="dropdown-content1">By Month</a>
+                            <a  href="cancelledride.php" class="dropdown-content1">No Filter</a>
+                        </div>
+                    </li>
+                </ul></td>
         </tr>
         <tr>
         <th>Customer ID</th>
@@ -63,7 +78,7 @@ require "../class/Rides.php";
         <th>Status</th>
 <?php
 foreach ($details as $key =>$ride) {
-    ?>
+                ?>
                 <tr>
                     <td><?php echo $ride['customer_user_id']?></td>
                     <td><?php echo $ride['name']?></td>
@@ -74,22 +89,20 @@ foreach ($details as $key =>$ride) {
                     <td><?php echo $ride['luggage']?> kg</td>
                     <td><?php echo $ride['ride_date']?></td>
                     <td>
-                        <?php echo $ride['total_fare'];        
-                        ?> rs.
+                        <?php echo $ride['total_fare']; ?> rs.
                </td>
                     <td><?php $status = $ride['status'];
-                    if ($status==0) {
-                        echo "Cancelled";
-
-                    }
-                    ?>
+                if ($status==0) {
+                    echo "Cancelled";
+                } ?>
                     </td>
               </tr>
-<?php }
+<?php
+            }
                 
     ?>
 
 </table>
                                 
-       
+<?php require "footer.php"; ?>    
     </div>
