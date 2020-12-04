@@ -41,7 +41,7 @@ if ($initial>$finaldest) {
 }
 
 $_SESSION['distance'] = $distance;
-
+//  Fare Calculation
 if ($cab==1) {
     if ($distance>0 && $distance <=10) {
         $fare =  50 + 13.50 * ($distance);
@@ -215,7 +215,9 @@ if ($cab==1) {
         }
     }
 }
+//insert cab type and fare into the session
 $_SESSION['cab'] = $cab; 
+// print the fare
 echo $fare;          
 $_SESSION['fare'] = $fare;         
 

@@ -27,11 +27,14 @@
     $cpass = $total_data['password'];
 
     if (isset($_POST['update'])) {
+        // get data from form
         $uname = $total_data['user_name'];
         $currentpass = md5(isset($_POST['cpas'])?$_POST['cpas']:'');
         $npassword = md5(isset($_POST['npas'])?$_POST['npas']:'');
         $repassword = md5(isset($_POST['rnpas'])?$_POST['rnpas']:'');
         $update_user = new Users();
+
+        // check all the errors
         if ($npassword!=$repassword) {
             $errors[] = array('input'=>'password','msg'=>'Password doesnt match');
         }
@@ -42,6 +45,7 @@
             $errors[] = array('input'=>'password','msg'=>'Your New Password is same as Last Password please change it!');
         }
         if (sizeof($errors)==0) {
+            // updation of the password into database
             $update_user->changepassword($uname, $currentpass, $npassword, $repassword, $db->conn);
         }
     }

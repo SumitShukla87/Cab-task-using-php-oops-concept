@@ -23,5 +23,6 @@ if (!isset($_SESSION['userdata'])) {
         $accept= 0;
         $db = new Dbcon();
         $cancel_ride = new Rides();
+        // Method to call for cancel the ride
         $cancel_ride->cancelride($id, $accept, $db->conn);   
 }?>

@@ -31,14 +31,17 @@ if (!isset($_SESSION['userdata'])) {
     $db = new Dbcon();
     $ride = new Rides();
 
+     // methos to show list of completed rides
     $details =$ride->showcompleted($id, $filterby, $db->conn); ?>
 
+    <!-- print the data into table format -->
     <table>
          <tr>
               <th colspan="9"><h2>-:- Completed Rides  -:-</h2></th>
          </tr>
          <tr>
                     <th colspan="9">
+                                   <!-- showing the soritng -->
                          <ul>
                               <li>
                                    <div class="dropdown1">
@@ -56,7 +59,7 @@ if (!isset($_SESSION['userdata'])) {
                </tr>
                <tr>
                     <th colspan="9">
-                         <ul>
+                         <!-- <ul>           Showing the filltering -->
                               <li>
                                    <div class="dropdown1">
                                         <a href="completedride.php" class="dropbtn approve-css">Filter  Data</a>
@@ -71,6 +74,7 @@ if (!isset($_SESSION['userdata'])) {
                     </th>
                </tr>
         <tr>
+             <!-- print the table heading -->
         <th>Ride-ID</th>
         <th>Pickup-Location</th>
         <th>Drop-Location</th>
@@ -81,6 +85,7 @@ if (!isset($_SESSION['userdata'])) {
         <th>Cab-Type</th>
         <th>Fare</th>
 
+        <!-- fetch the value from database using for each -->
 
         <?php foreach ($details as $key=> $value) { ?>
                <tr>
@@ -135,7 +140,7 @@ if (!isset($_SESSION['userdata'])) {
         <?php }
 }         ?>
 </table>
-
+<!-- footer included -->
 <?php require "footer.php"?>
 
 

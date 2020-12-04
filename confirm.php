@@ -37,8 +37,9 @@ if (!isset($_SESSION['userdata'])) {
                     header("location:userdashboard.php");
                 }
            
-                    
+                         // making object of dbcon file
                          $db = new Dbcon();
+                          // making object of RIde file
                          $viewdata = new Rides(); ?>
                     <form action="" method="POST">
                     <table class='view-table-css'>
