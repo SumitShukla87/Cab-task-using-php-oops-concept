@@ -110,7 +110,8 @@ foreach ($sort as $key =>$ride) {
                     ?>
                     </td>
                     <td>
-                        <a href="deleteride.php?id=<?php echo $ride['ride_id']?>" class="delete-css">Delete Ride</a>
+                        <a href="deleteride.php?id=<?php echo $ride['ride_id']?>" onclick="return  confirm('Do You Want to Delete The Ride??')" class="delete-css">Delete Ride</a>
+                        
                     </td>
                    
               </tr>

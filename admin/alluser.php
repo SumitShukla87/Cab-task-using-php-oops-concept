@@ -127,7 +127,7 @@ foreach ($details as $key =>$ride) {
                     </form>
                     </td>
                     <td>
-                        <a href="deleteuser.php?id=<?php echo $ride['user_id']?>" class="delete-css">Delete User</a>
+                        <a href="deleteuser.php?id=<?php echo $ride['user_id']?>"  onclick="return  confirm('Do You Want to Delete The User??')" class="delete-css">Delete User</a>
                     </td>
               </tr>
 <?php }
