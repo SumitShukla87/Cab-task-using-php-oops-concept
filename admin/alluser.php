@@ -54,9 +54,14 @@ if (isset($_GET['filter'])) {
 
     $details= $unblock->showuser($filterby, $db->conn);
 ?>
-        <table class='view-table-css'>
+        <table>
+        
         <tr>
-            <td colspan="8"> <ul>
+                    <td colspan="4">
+                    <h2>-:-List of All Users-:-</h2>                    
+                    </td>
+                    <th colspan="2"> 
+                    <ul>
                     <li class="dropdown">
                         <a href="alluser.php"class="dropbtn approve-css">Sort Data</a>
                         <div class="dropdown-content">
@@ -69,10 +74,10 @@ if (isset($_GET['filter'])) {
                         
                         </div>
                     </li>
-                </ul></td>
-        </tr>
-        <tr>
-            <td colspan="8"> <ul>
+                </ul>
+                    </th>
+                    <th colspan="2">
+                    <ul>
                     <li class="dropdown">
                         <a href="alluser.php"class="dropbtn approve-css">Filter Data</a>
                         <div class="dropdown-content">
@@ -81,13 +86,8 @@ if (isset($_GET['filter'])) {
                             <a  href="alluser.php" class="dropdown-content1">No Filter</a>
                         </div>
                     </li>
-                </ul></td>
-        </tr>
-        
-        <tr>
-                    <td colspan="8">
-                    <h2>-:-List of All Users-:-</h2>                    
-                    </td>
+                </ul>
+                    </th>
                  </tr>
         <tr>
         <th>Customer ID</th>
@@ -97,8 +97,7 @@ if (isset($_GET['filter'])) {
         <th>Mobile</th>
         <th>Status</th>
         <th>Action</th>
-        <th>Delete User</th>
-
+        
 <?php
 foreach ($details as $key =>$ride) {
     ?>
@@ -118,17 +117,15 @@ foreach ($details as $key =>$ride) {
 
                     <?php if ($status==0) {
                         echo "Blocked";?>
-                       <td><input type="submit" name="unblock" class="delete-css" Value="Unblock User"></td>
+                       <td><input type="submit" name="unblock" class="delete-css" Value="Unblock User" onclick="return  confirm('Do You Want to Unblock The User??')"></td>
 
                     <?php } elseif ($status==1) {
                         echo "Unblocked";?>
-                        <td><input type="submit" name="block" class="approve-css" Value="Block User"></td>
+                        <td><input type="submit" name="block" class="approve-css" Value="Block User" onclick="return  confirm('Do You Want to Block The User??')"></td>
                     <?php }?>  
                     </form>
                     </td>
-                    <td>
-                        <a href="deleteuser.php?id=<?php echo $ride['user_id']?>"  onclick="return  confirm('Do You Want to Delete The User??')" class="delete-css">Delete User</a>
-                    </td>
+                    
               </tr>
 <?php }
                 

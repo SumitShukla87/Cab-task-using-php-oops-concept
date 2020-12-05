@@ -36,43 +36,39 @@ $id = $_SESSION['userdata']['uid'];
                
                     ?>
           <form action="" method="GET">
-               <table class='view-table-css'>
-               <tr>
-                    <th colspan="9">
-                         <ul>
-                              <li>
-                                   <div class="dropdown1">
-                                        <a href="viewrides.php" class="dropbtn approve-css">Sort Data</a>
-                                        <div class="dropdown-content1">
-                                             <a  href="viewrides.php?filter=fareasc" >By Fare(ASC)</a>
-                                             <a  href="viewrides.php?filter=faredesc">By Fare(DESC)</a>
-                                             <a  href="viewrides.php?filter=dateasc" >By Date(ASC)</a>
-                                             <a  href="viewrides.php?filter=datedesc">By Date(DESC)</a> 
-                                        </div>
-                                   </div>     
-                              </li>
-                         </ul>
-                    </th>
-               </tr>
-               <tr>
-                    <th colspan="9">
-                         <ul>
-                              <li>
-                                   <div class="dropdown1">
-                                        <a href="viewrides.php" class="dropbtn approve-css">Filter  Data</a>
-                                        <div class="dropdown-content1">
-                                             <a  href="viewrides.php?filter=week" >By Week</a>
-                                             <a  href="viewrides.php?filter=month">By Month</a> 
-                                             <a  href="viewrides.php">No Filter</a> 
-                                        </div>
-                                   </div>     
-                              </li>
-                         </ul>
-                    </th>
-               </tr>
+               <table>
           </form> 
          <tr>
-              <th colspan="9"><h2>-:- All Rides  -:-</h2></th>
+              <th colspan="5"><h2>-:- All Rides  -:-</h2></th>
+              <th colspan="2">
+                    <ul>
+                         <li>
+                              <div class="dropdown1">
+                                   <a href="viewrides.php" class="dropbtn approve-css">Sort Data</a>
+                                   <div class="dropdown-content1">
+                                        <a  href="viewrides.php?filter=fareasc" >By Fare(ASC)</a>
+                                        <a  href="viewrides.php?filter=faredesc">By Fare(DESC)</a>
+                                        <a  href="viewrides.php?filter=dateasc" >By Date(ASC)</a>
+                                        <a  href="viewrides.php?filter=datedesc">By Date(DESC)</a> 
+                                   </div>
+                              </div>     
+                         </li>
+                    </ul>
+               </th>
+               <th colspan="2">
+                    <ul>
+                         <li>
+                              <div class="dropdown1">
+                                   <a href="viewrides.php" class="dropbtn approve-css">Filter  Data</a>
+                                   <div class="dropdown-content1">
+                                        <a  href="viewrides.php?filter=week" >By Week</a>
+                                        <a  href="viewrides.php?filter=month">By Month</a> 
+                                        <a  href="viewrides.php">No Filter</a> 
+                                   </div>
+                              </div>     
+                         </li>
+                    </ul>
+               </th>
          </tr>
         <tr>
         <th>Ride-ID</th>

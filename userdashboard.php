@@ -75,11 +75,8 @@ if (!isset($_SESSION['userdata'])) {
                             <a href="completedride.php" class="class-a">More Info</a>
                         </div>
                     </a>    
-                </div> 
-</div>      
-</div>      
-
-    <table class="tb-dash">
+        </div> 
+        <table class="tb-dash">
         <tr>
             <td colspan="8">  <h2>-:-Ride Request of <?php echo $name?>-:-</h2></td>
         </tr>
@@ -114,7 +111,7 @@ if (!isset($_SESSION['userdata'])) {
                         
                         ?>
                    </td>
-    <td><a href="cancelride.php?id=<?php echo $ride['ride_id']?>" class="delete-css">Cancel Ride</a></td>
+    <td><a href="cancelride.php?id=<?php echo $ride['ride_id']?>" class="delete-css" onclick="return  confirm('Do You Want to Cancel The Ride??')">Cancel Ride</a></td>
     </tr>
     <?php    }
     }
@@ -122,6 +119,6 @@ if (!isset($_SESSION['userdata'])) {
     ?>
 
     </table>
+    <?php include "footer.php"; ?>
+</div>   
 
-    
-    <?php require "footer.php"?>

@@ -24,60 +24,57 @@ if (!isset($_SESSION['userdata'])) {
     $ride = new Rides();
     $data = $ride->expanse($id, $db->conn); ?>
 
-    <table class='view-table-css'>
             <?php
             if (isset($_GET['filter'])) {
                 $filterby = isset($_GET['filter'])?$_GET['filter']:'';
             } else {
                 $filterby ='';
             }
-            $details = $ride->spent($id, $filterby, $db->conn); ?>
+               $details = $ride->spent($id, $filterby, $db->conn); ?>
     <form action="" method="GET">
 
-        <table class='view-table-css'>
-       <tr>
-                    <th colspan="6">
-                         <ul>
-                              <li>
-                                   <div class="dropdown1">
-                                        <a href="viewexp.php" class="dropbtn approve-css">Sort Data</a>
-                                        <div class="dropdown-content1">
-                                             <a  href="viewexp.php?filter=fareasc" >By Fare(Asc)</a>
-                                             <a  href="viewexp.php?filter=dateasc">By Date(Asc)</a> 
-                                             <a  href="viewexp.php?filter=faredesc" >By Fare(Desc)</a>
-                                             <a  href="viewexp.php?filter=datedesc">By Date(Desc)</a> 
-                                       
-                                        </div>
-                                   </div>     
-                              </li>
-                         </ul>
-                    </th>
-               </tr>
-               <tr>
-                    <th colspan="6">
-                         <ul>
-                              <li>
-                                   <div class="dropdown1">
-                                        <a href="viewexp.php" class="dropbtn approve-css">Filter  Data</a>
-                                        <div class="dropdown-content1">
-                                             <a  href="viewexp.php?filter=week" >By Week</a>
-                                             <a  href="viewexp.php?filter=month">By Month</a> 
-                                             <a  href="viewexp.php">No Filter</a> 
-                                        </div>
-                                   </div>     
-                              </li>
-                         </ul>
-                    </th>
-               </tr>
+        <table>
     </form> 
          <tr>
-              <th colspan="5"><h2>-:- Expanses on Cab  -:-</h2></th>
+              <th colspan="4"><h2>-:- Expanses on Cab  -:-</h2></th>
+              <th colspan="2">
+                    <ul>
+                         <li>
+                              <div class="dropdown1">
+                                   <a href="viewexp.php" class="dropbtn approve-css">Sort Data</a>
+                                   <div class="dropdown-content1">
+                                        <a  href="viewexp.php?filter=fareasc" >By Fare(Asc)</a>
+                                        <a  href="viewexp.php?filter=dateasc">By Date(Asc)</a> 
+                                        <a  href="viewexp.php?filter=faredesc" >By Fare(Desc)</a>
+                                        <a  href="viewexp.php?filter=datedesc">By Date(Desc)</a> 
+                                   
+                                   </div>
+                              </div>     
+                         </li>
+                    </ul>
+               </th>
+               <th colspan="2">
+                    <ul>
+                         <li>
+                              <div class="dropdown1">
+                                   <a href="viewexp.php" class="dropbtn approve-css">Filter  Data</a>
+                                   <div class="dropdown-content1">
+                                        <a  href="viewexp.php?filter=week" >By Week</a>
+                                        <a  href="viewexp.php?filter=month">By Month</a> 
+                                        <a  href="viewexp.php">No Filter</a> 
+                                   </div>
+                              </div>     
+                         </li>
+                    </ul>
+               </th>
          </tr>
         <tr>
             <th>Ride-ID</th>
             <th>Pickup-Location</th>
             <th>Drop-Location</th>
             <th>Distance</th>
+            <th>Luggage</th>
+            <th>Cab-type</th>
             <th>Date</th>
             <th>Fare
             </th>
@@ -99,6 +96,24 @@ if (!isset($_SESSION['userdata'])) {
                         <?php echo $value['total_distance'];?> km
                    </td>
                    <td>
+                        <?php echo $value['luggage'];?> kg
+                   </td>
+                   <td>
+                   <?php $car = $value['cab_type'];
+                        
+                    if ($car == 1) {
+                         echo "Ced Micro";
+                    } elseif ($car == 2) {
+                         echo "Ced Mini";
+                    } elseif ($car == 3) {
+                         echo "Ced Royal";
+                    } else {
+                         echo "Ced Suv";
+                    }                       
+                        
+                        ?>
+                   </td>
+                   <td>
                         <?php echo $value['ride_date'];?>
                    </td>
                    <td>
@@ -109,7 +124,7 @@ if (!isset($_SESSION['userdata'])) {
         <?php } ?>
 
         <tr>
-        <th colspan="4"><h2>Total Money Spent on Cab</h2></th>
+        <th colspan="7"><h2>Total Money Spent on Cab</h2></th>
         <td>
                   <h2> <?php    echo $data['ex']; ?> rs.</h2> 
                    </td>

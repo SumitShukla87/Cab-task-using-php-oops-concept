@@ -43,7 +43,10 @@ $unblock = new Users();
             ?>
         <table>
         <tr>
-            <td colspan="6"> <ul>
+                    <td colspan="2">
+                    <h2>-:-List of Approved Users-:-</h2>                    
+                    </td>
+                    <th colspan="2"> <ul>
                     <li class="dropdown">
                         <a href="approveduser.php"class="dropbtn approve-css">Sort Data</a>
                         <div class="dropdown-content">
@@ -55,10 +58,8 @@ $unblock = new Users();
                         
                         </div>
                     </li>
-                </ul></td>
-        </tr>
-        <tr>
-            <td colspan="6"> <ul>
+                </ul></th>
+                <th colspan="2"> <ul>
                     <li class="dropdown">
                         <a href="approveduser.php"class="dropbtn approve-css">Filter Data</a>
                         <div class="dropdown-content">
@@ -67,12 +68,7 @@ $unblock = new Users();
                             <a  href="approveduser.php" class="dropdown-content1">No Filter</a>
                         </div>
                     </li>
-                </ul></td>
-        </tr>
-        <tr>
-                    <td colspan="6">
-                    <h2>-:-List of Approved Users-:-</h2>                    
-                    </td>
+                </ul></th>
                  </tr>
         <tr>
         <th>Customer ID</th>

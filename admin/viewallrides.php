@@ -39,7 +39,14 @@ $viewdata = new Rides();
     <form action="" method="GET">
         <table class='view-table-css'>
         <tr>
-            <th colspan="10">
+            
+        </tr>
+        <tr>
+            
+        </tr>
+        <tr>
+            <th colspan="6"><h2>-:-All Rides of Users-:-</h2></th> 
+            <th colspan="2">
             <ul>
                     <li class="dropdown">
                         <a href="viewallrides.php"class="dropbtn approve-css">Sort Data</a>
@@ -53,9 +60,7 @@ $viewdata = new Rides();
                     </li>
                 </ul>
             </th> 
-        </tr>
-        <tr>
-            <td colspan="10"> <ul>
+            <th colspan="2"> <ul>
                     <li class="dropdown">
                         <a href="riderequest.php"class="dropbtn approve-css">Filter Data</a>
                         <div class="dropdown-content">
@@ -64,16 +69,15 @@ $viewdata = new Rides();
                             <a  href="viewallrides.php" class="dropdown-content1">No Filter</a>
                         </div>
                     </li>
-                </ul></td>
-        </tr>
-        <tr>
-            <th colspan="9"><h2>-:-All Rides of Users-:-</h2></th> 
+                </ul></th>
+            
         </tr>
         <tr>
             <th>Customer ID</th>
             <th>Customer Name</th>
             <th>Pickup-Location</th>
             <th>Drop-Location</th>
+            <th>Ride-Date</th>
             <th>Total Distance</th>
             <th>Luggage</th>
             <th>Fare</th>
@@ -91,6 +95,7 @@ foreach ($sort as $key =>$ride) {
             
                     <td><?php echo $ride['from']?></td>
                     <td><?php echo $ride['to']?></td>
+                    <td><?php echo $ride['ride_date']?></td>
                     <td><?php echo $ride['total_distance']?>km</td>
                     <td><?php echo $ride['luggage']?>kg</td>
                     <td>

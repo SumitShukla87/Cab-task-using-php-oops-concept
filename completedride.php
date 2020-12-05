@@ -37,43 +37,39 @@ if (!isset($_SESSION['userdata'])) {
     <!-- print the data into table format -->
     <table>
          <tr>
-              <th colspan="9"><h2>-:- Completed Rides  -:-</h2></th>
+              <th colspan="5"><h2>-:- Completed Rides  -:-</h2></th>
+              <th colspan="2">     
+                    <ul>
+                         <li>
+                              <div class="dropdown1">
+                                   <a href="completedride.php" class="dropbtn approve-css">Sort Data</a>
+                                   <div class="dropdown-content1">
+                                        <a  href="completedride.php?filter=fareasc" >By Fare(ASC)</a>
+                                        <a  href="completedride.php?filter=faredesc">By Fare(DESC)</a> 
+                                        <a  href="completedride.php?filter=dateasc" >By Date(ASC)</a>
+                                        <a  href="completedride.php?filter=datedesc">By Date(DESC)</a> 
+                                   </div>
+                              </div>     
+                         </li>
+                    </ul>
+               </th>
+               <th colspan="2">
+                    <ul>       
+                              <!-- Showing the filltering -->
+                         <li>
+                              <div class="dropdown1">
+                                   <a href="completedride.php" class="dropbtn approve-css">Filter  Data</a>
+                                   <div class="dropdown-content1">
+                                        <a  href="completedride.php?filter=week" >By Week</a>
+                                        <a  href="completedride.php?filter=month">By Month</a> 
+                                        <a  href="completedride.php">No Filter</a> 
+                                   </div>
+                              </div>     
+                         </li>
+                    </ul>
+               </th>
          </tr>
-         <tr>
-                    <th colspan="9">
-                               
-                         <ul>
-                              <li>
-                                   <div class="dropdown1">
-                                        <a href="completedride.php" class="dropbtn approve-css">Sort Data</a>
-                                        <div class="dropdown-content1">
-                                             <a  href="completedride.php?filter=fareasc" >By Fare(ASC)</a>
-                                             <a  href="completedride.php?filter=faredesc">By Fare(DESC)</a> 
-                                             <a  href="completedride.php?filter=dateasc" >By Date(ASC)</a>
-                                             <a  href="completedride.php?filter=datedesc">By Date(DESC)</a> 
-                                        </div>
-                                   </div>     
-                              </li>
-                         </ul>
-                    </th>
-               </tr>
-               <tr>
-                    <th colspan="9">
-                         <ul>       
-                                  <!-- Showing the filltering -->
-                              <li>
-                                   <div class="dropdown1">
-                                        <a href="completedride.php" class="dropbtn approve-css">Filter  Data</a>
-                                        <div class="dropdown-content1">
-                                             <a  href="completedride.php?filter=week" >By Week</a>
-                                             <a  href="completedride.php?filter=month">By Month</a> 
-                                             <a  href="completedride.php">No Filter</a> 
-                                        </div>
-                                   </div>     
-                              </li>
-                         </ul>
-                    </th>
-               </tr>
+
         <tr>
              <!-- print the table heading -->
         <th>Ride-ID</th>
@@ -122,9 +118,9 @@ if (!isset($_SESSION['userdata'])) {
                         
                         if ($car == 1) {
                             echo "Ced Micro";
-                        } elseif ($car == 1) {
+                        } elseif ($car == 2) {
                             echo "Ced Mini";
-                        } elseif ($car == 1) {
+                        } elseif ($car == 3) {
                             echo "Ced Royal";
                         } else {
                             echo "Ced Suv";

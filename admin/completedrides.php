@@ -36,10 +36,8 @@ require "../class/Rides.php";
             ?>
         <table>
         <tr>
-            <th colspan="10"><h2>-:-Completed Rides of Users-:-</h2></th> 
-        </tr>
-        <tr>
-            <th colspan="10">
+            <th colspan="6"><h2>-:-Completed Rides of Users-:-</h2></th> 
+            <th colspan="2">
             <ul>
                     <li class="dropdown">
                         <a href="completedrides.php"class="dropbtn approve-css">Sort Data</a>
@@ -53,9 +51,7 @@ require "../class/Rides.php";
                     </li>
                 </ul>
             </th> 
-        </tr>
-        <tr>
-            <td colspan="10"> <ul>
+            <th colspan="2"> <ul>
                     <li class="dropdown">
                         <a href="riderequest.php"class="dropbtn approve-css">Filter Data</a>
                         <div class="dropdown-content">
@@ -65,7 +61,7 @@ require "../class/Rides.php";
                        
                         </div>
                     </li>
-                </ul></td>
+                </ul></th>
         </tr>
         <tr>
         <th>Customer ID</th>

@@ -47,7 +47,6 @@ $(document).ready(function () {
         } else {
             var key = e.keyCode;
             if (!((key == 8) || (key == 32) || (key == 46) || (key >= 35 && key <= 40) || (key >= 65 && key <= 90))) {
-               alert("only Enter Alphabates")
                 e.preventDefault();
             }
         }
@@ -91,7 +90,7 @@ $(document).ready(function () {
                 },
                 success: function (result) {
                     $("#res").show();
-                    $("#res").html("Total fare Is: " + result +" rs.");
+                    $("#res").html("Total fare Is: Rs." + result );
                     $("#book").show();
                 },
                 error: function () {

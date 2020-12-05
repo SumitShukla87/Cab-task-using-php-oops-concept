@@ -319,9 +319,9 @@ VALUES ('".$date."','".$pickup."','".$drop."','".$cab."','".$distance."','".$lug
         } elseif ($filterby == "datedesc") {
             $sql = "SELECT * from `tbl_ride` WHERE `customer_user_id`='".$id."' AND `status` = 2 ORDER BY CAST(`ride_date` AS UNSIGNED ) DESC";
         } elseif ($filterby == "week") {
-            $sql = "SELECT * from `tbl_ride` WHERE `customer_user_id`='".$id."' AND `status` = 2 Where  `ride_date`> DATE_SUB(curdate(),INTERVAL 1 WEEK)";
+            $sql = "SELECT * from `tbl_ride` WHERE `customer_user_id`='".$id."' AND `status` = 2 AND  `ride_date`> DATE_SUB(curdate(),INTERVAL 1 WEEK )";
         } elseif ($filterby == "month") {
-            $sql = "SELECT * from `tbl_ride` WHERE `customer_user_id`='".$id."' AND `status` = 2 Where `ride_date`> DATE_SUB(curdate(),INTERVAL 1 MONTH)";
+            $sql = "SELECT * from `tbl_ride` WHERE `customer_user_id`='".$id."' AND `status` = 2 AND  `ride_date`> DATE_SUB(curdate(),INTERVAL 1 MONTH )";
         } else {
             $sql = "SELECT * from `tbl_ride` WHERE `customer_user_id`='".$id."' AND `status` = 2";
         }

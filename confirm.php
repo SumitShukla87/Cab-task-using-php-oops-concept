@@ -82,10 +82,10 @@ if (!isset($_SESSION['userdata'])) {
                          
                          <tr>
                               <td>
-                                   <input type="submit" value="No" name="no">
+                                   <input type="submit" value="No" name="no" onclick="return alert('You Have Cancelled Your Ride Request!!!')">
                               </td>
                               <td>
-                              <input type="submit" value="Yes" name="yes">
+                              <input type="submit" value="Yes" name="yes" onclick="return alert('Congratulation! Your Ride Has Been Booked!')">
                               </td>
                          </tr>     
 

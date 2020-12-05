@@ -84,7 +84,25 @@ $locations =$data->viewlocation($name, $db->conn);
     <form action="" method="GET">
         <table class='view-table-css'>
         <tr>
-            <th colspan="7">
+            
+        </tr>
+    </form>    
+
+
+
+            <th colspan="3">
+            <?php if (isset($_POST['edit'])) { ?>
+                <h2> Update Details of Location Table </h2>
+                 
+            <?php } else {?>
+
+                <h2> Details of Location table </h2>
+            </th>
+            <?php }?>
+            <th >
+                <a href="addlocation.php" class="delete-css">Add New Location</a>
+        </th>
+        <th >
                 <ul>
                     <li class="dropdown">
                         <a href="viewlocation.php?value=`id`"class="dropbtn approve-css">Sort Data</a>
@@ -96,26 +114,6 @@ $locations =$data->viewlocation($name, $db->conn);
                     </li>
                 </ul>
             </th>
-        </tr>
-    </form>    
-
-
-
-
-            <?php if (isset($_POST['edit'])) { ?>
-                <td colspan="6">
-                <h2> Update Details of Location Table </h2>
-                </td>   
-            <?php } else {?>
-                <td colspan="5">
-                <h2> Details of Location table </h2>
-                </td>
-            <?php }?>
-        </tr>
-        <tr>
-        <th colspan="6">
-                <a href="addlocation.php" class="delete-css">Add New Location</a>
-        </th>
         </tr>
         <tr>
             <th>
@@ -133,7 +131,7 @@ $locations =$data->viewlocation($name, $db->conn);
 
             <?php if (isset($_POST['edit'])) { ?>
                 <th>
-                <h2> Block/Unblock Route </h2>
+                <h5> Block/Unblock Route </h5>
                 </th>   
             <?php } ?>
 
@@ -186,12 +184,12 @@ foreach ($locations as $key =>$udetails) {
                     <?php  if (isset($_POST['edit']) && $udetails['id'] == $_POST['id']) { ?>
                     <?php if ($status==0) {
                     ?>
-                                <td><input type="submit" name="unblock" class="delete-css" Value="Unblock Route"></td>
+                                <td><input type="submit" name="unblock" class="delete-css" Value="Unblock Route" onclick="return  confirm('Do You Want to Unblock The Route??')"></td>
 
                     <?php
                     } elseif ($status==1) {
                         ?>
-                        <td><input type="submit" name="block" class="approve-css" Value="Block Route"></td>
+                        <td><input type="submit" name="block" class="approve-css" Value="Block Route" onclick="return  confirm('Do You Want to Block The Route??')"></td>
 
                     <?php
                     }
@@ -200,7 +198,7 @@ foreach ($locations as $key =>$udetails) {
                     <?php if (isset($_POST['edit']) && $udetails['id'] == $_POST['id']) { ?>
                         <td>
                         <input type="hidden" name="id" value="<?php echo $udetails['id']; ?> ">
-                        <input type="submit" class="delete-css" name="update" Value="Update"></td>
+                        <input type="submit" class="delete-css" name="update" Value="Update" onclick="return  confirm('Do You Want to Update The Location??')"></td>
                     <?php } else {?>
                         <td>
                         <input type="hidden" name="id" value="<?php echo $udetails['id']; ?>">

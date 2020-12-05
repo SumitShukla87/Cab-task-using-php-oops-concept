@@ -47,11 +47,11 @@ require "../class/Dbcon.php";?>
                     $details= $p_ride->presentmonth($db->conn);
                 ?>
                 <div class="tiledemo">
-                    <a href="viewearning.php">
+                    <a href="#">
                     <div class="tile1">
                         All Earnings
                         <h1><?php echo $income['INCOME'];?> rs.</h1>
-                            <a href="viewearning.php" class="class-a">More Info</a>
+                            
                     </div>
 
                     </a>
@@ -73,11 +73,11 @@ require "../class/Dbcon.php";?>
                     </a>    
                 </div>
                 <div class="tiledemo">
-                    <a href="riderequest.php">
+                    <a href="completedrides.php">
                         <div class="tile1">
-                            Pending Ride Request
-                            <h1><?php echo $data['RIDE'];?></h1>
-                            <a href="riderequest.php" class="class-a">More Info</a>  
+                        Completed  Rides
+                            <h1><?php echo $completed['COM'];?></h1>
+                            <a href="completedrides.php" class="class-a">More Info</a> 
                         </div>
                     </a>    
                     <a href="viewallrides.php">
@@ -87,11 +87,12 @@ require "../class/Dbcon.php";?>
                             <a href="viewallrides.php" class="class-a">More Info</a>  
                         </div>
                     </a>
-                    <a href="completedrides.php">
+                    <a href="cancelledride.php">
                         <div class="tile3">
-                            Completed  Rides
-                            <h1><?php echo $completed['COM'];?></h1>
-                            <a href="completedrides.php" class="class-a">More Info</a>                    
+                        Cancelled Ride
+                        <h1><?php echo $declined['declined'];?></h1>
+                        <a href="cancelledride.php" class="class-a">More Info</a>      
+                                               
                         </div>
                     </a> 
                 </div>
@@ -110,11 +111,14 @@ require "../class/Dbcon.php";?>
                         <a href="viewlocation.php" class="class-a">More Info</a>
                     </div>
                 </a>    
-                <a href="cancelledride.php">
+                <a href="riderequest.php">
                     <div class="tile3">
-                        Cancelled Ride
-                        <h1><?php echo $declined['declined'];?></h1>
-                        <a href="cancelledride.php" class="class-a">More Info</a>               
+                       
+                        
+                        
+                        Latest Ride Request
+                            <h1><?php echo $data['RIDE'];?></h1>
+                            <a href="riderequest.php" class="class-a">More Info</a>  
                     </div>
                 </a>     
                 </div>

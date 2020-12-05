@@ -33,42 +33,38 @@ if (!isset($_SESSION['userdata'])) {
 
     <table>
          <tr>
-              <th colspan="10"><h2>-:- Pending Rides  -:-</h2></th>
+              <th colspan="6"><h2>-:- Pending Rides  -:-</h2></th>
+              <th colspan="2">
+                    <ul>
+                         <li>
+                              <div class="dropdown1">
+                                   <a href="pendingride.php" class="dropbtn approve-css">Sort Data</a>
+                                   <div class="dropdown-content1">
+                                        <a  href="pendingride.php?filter=fareasc" >By Fare(Asc)</a>
+                                        <a  href="pendingride.php?filter=dateasc">By Date(Asc)</a> 
+                                        <a  href="pendingride.php?filter=faredesc" >By Fare(Desc)</a>
+                                        <a  href="pendingride.php?filter=datedesc">By Date(Desc)</a> 
+                                   
+                                   </div>
+                              </div>     
+                         </li>
+                    </ul>
+               </th>
+               <th colspan="2">
+                    <ul>
+                         <li>
+                              <div class="dropdown1">
+                                   <a href="pendingride.php" class="dropbtn approve-css">Filter  Data</a>
+                                   <div class="dropdown-content1">
+                                        <a  href="pendingride.php?filter=week" >By Week</a>
+                                        <a  href="pendingride.php?filter=month">By Month</a> 
+                                        <a  href="pendingride.php">No Filter</a> 
+                                   </div>
+                              </div>     
+                         </li>
+                    </ul>
+               </th>
          </tr>
-         <tr>
-                    <th colspan="10">
-                         <ul>
-                              <li>
-                                   <div class="dropdown1">
-                                        <a href="pendingride.php" class="dropbtn approve-css">Sort Data</a>
-                                        <div class="dropdown-content1">
-                                             <a  href="pendingride.php?filter=fareasc" >By Fare(Asc)</a>
-                                             <a  href="pendingride.php?filter=dateasc">By Date(Asc)</a> 
-                                             <a  href="pendingride.php?filter=faredesc" >By Fare(Desc)</a>
-                                             <a  href="pendingride.php?filter=datedesc">By Date(Desc)</a> 
-                                       
-                                        </div>
-                                   </div>     
-                              </li>
-                         </ul>
-                    </th>
-               </tr>
-               <tr>
-                    <th colspan="10">
-                         <ul>
-                              <li>
-                                   <div class="dropdown1">
-                                        <a href="pendingride.php" class="dropbtn approve-css">Filter  Data</a>
-                                        <div class="dropdown-content1">
-                                             <a  href="pendingride.php?filter=week" >By Week</a>
-                                             <a  href="pendingride.php?filter=month">By Month</a> 
-                                             <a  href="pendingride.php">No Filter</a> 
-                                        </div>
-                                   </div>     
-                              </li>
-                         </ul>
-                    </th>
-               </tr>
         <tr>
         <th>Ride-ID</th>
         <th>Pickup-Location</th>
@@ -130,7 +126,7 @@ if (!isset($_SESSION['userdata'])) {
                    <td>
                         <?php echo $value['total_fare'];?> rs
                    </td>
-                   <td><a href="cancelride.php?id=<?php echo $value['ride_id']?>" class="delete-css">Cancel Ride</a></td>
+                   <td><a href="cancelride.php?id=<?php echo $value['ride_id']?>" class="delete-css" onclick="return  confirm('Do You Want to Cancel The Ride??')">Cancel Ride</a></td>
                                    
                </tr>
         <?php }

@@ -6,7 +6,6 @@
   #wrapper{
     margin-left: 200px;
     padding: 1px 16px;
-
   } 
   #admin-bg{
     background-color: aqua;
@@ -214,10 +213,9 @@ header{
 }
 footer {
   
-  margin-top: 10%;
-  float: right;
+  right:0 ;
   bottom: 0%;
-  position: relative;
+  position: absolute;
   display: block;
 }
 

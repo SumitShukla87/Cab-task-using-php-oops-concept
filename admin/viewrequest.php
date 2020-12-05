@@ -38,12 +38,10 @@ require "../class/Users.php";
                         $viewdata = new Users();
                        $details= $viewdata->viewrequest($filterby, $db->conn);
             ?>
-        <table class='view-table-css'>
+        <table>
         <tr>
-            <td colspan="6"> <h2>-:-Login Request of Users-:-</h2></td>
-        </tr>
-        <tr>
-            <td colspan="6"> <ul>
+            <td colspan="2"> <h2>-:-Login Request of Users-:-</h2></td>
+            <th colspan="2"> <ul>
                     <li class="dropdown">
                         <a href="viewrequest.php"class="dropbtn approve-css">Sort Data</a>
                         <div class="dropdown-content">
@@ -55,10 +53,8 @@ require "../class/Users.php";
                         
                         </div>
                     </li>
-                </ul></td>
-        </tr>
-        <tr>
-            <td colspan="6"> <ul>
+                </ul></th>
+                <th colspan="2"> <ul>
                     <li class="dropdown">
                         <a href="viewrequest.php"class="dropbtn approve-css">Filter Data</a>
                         <div class="dropdown-content">
@@ -67,7 +63,7 @@ require "../class/Users.php";
                             <a  href="viewrequest.php" class="dropdown-content1">No Filter</a>
                         </div>
                     </li>
-                </ul></td>
+                </ul></th>    
         </tr>
         <tr>
         <th>ID</th>
@@ -83,8 +79,8 @@ foreach ($details as $key =>$udetails) {?>
              <td><?php echo $udetails['user_name']?></td>
              <td><?php echo $udetails['name']?></td>      
              <td><?php echo $udetails['dateofsignup']?></td>  
-              <td><a href="approverequest.php?id=<?php echo $udetails['user_id']?>" class="approve-css">Approve Request</a></td>
-            <td><a href="deleterequest.php?id=<?php echo $udetails['user_id']?>" class="delete-css">Delete Request</a></td>
+              <td><a href="approverequest.php?id=<?php echo $udetails['user_id']?>" class="approve-css" onclick="return  confirm('Do You Want to Approve the Request??')">Approve Request</a></td>
+            <td><a href="deleterequest.php?id=<?php echo $udetails['user_id']?>" class="delete-css" onclick="return  confirm('Do You Want to Delete The Request??')">Delete Request</a></td>
             </tr>
 <?php }
                 

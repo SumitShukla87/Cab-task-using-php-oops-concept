@@ -40,10 +40,8 @@ require "../class/Rides.php";
         <table>
         <tr>
         <tr>
-            <td colspan="10">  <h2>-:-Ride Request of Users-:-</h2></td>
-        </tr>
-        <tr>
-            <td colspan="10"> <ul>
+            <th colspan="6">  <h2>-:-Ride Request of Users-:-</h2></th>
+            <th colspan="2"> <ul>
                     <li class="dropdown">
                         <a href="riderequest.php"class="dropbtn approve-css">Sort Data</a>
                         <div class="dropdown-content">
@@ -56,10 +54,10 @@ require "../class/Rides.php";
                         
                         </div>
                     </li>
-                </ul></td>
-        </tr>
-        <tr>
-            <td colspan="10"> <ul>
+                </ul>
+            </th>
+            <th colspan="2">
+                <ul>
                     <li class="dropdown">
                         <a href="riderequest.php"class="dropbtn approve-css">Filter Data</a>
                         <div class="dropdown-content">
@@ -68,7 +66,8 @@ require "../class/Rides.php";
                             <a  href="riderequest.php" class="dropdown-content1">No Filter</a>
                         </div>
                     </li>
-                </ul></td>
+                </ul>
+            </th>
         </tr>
         <th>Customer ID</th>
         <th>Customer Name</th>
@@ -95,8 +94,8 @@ foreach ($details as $key =>$ride) {
                         <?php echo $ride['total_fare'];        
                         ?> rs.
                </td>
-                <td><a href="approveride.php?id=<?php echo $ride['ride_id']?>" class="approve-css">Approve Ride</a></td>
-                <td><a href="cancelride.php?id=<?php echo $ride['ride_id']?>" class="delete-css">Cancel Ride</a></td>
+                <td><a href="approveride.php?id=<?php echo $ride['ride_id']?>" class="approve-css" onclick="return  confirm('Do You Want to Approve the Ride Request??')">Approve Ride</a></td>
+                <td><a href="cancelride.php?id=<?php echo $ride['ride_id']?>" class="delete-css" onclick="return  confirm('Do You Want to Delete The Ride Request??')">Cancel Ride</a></td>
                 </tr>
 <?php }
                 

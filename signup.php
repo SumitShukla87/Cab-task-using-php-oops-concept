@@ -69,49 +69,50 @@ if (isset($_POST['register'])) {
 
 </div>
         <div id="bg-signup">
-        <form action=""  method="POST">
-           
-                <table id="reg-form">
-                    <tr>
-                        <td colspan="2"><img src=" images/logo.png" height="100px" width="100px"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2"> <h2>Sign-Up</h2>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><label for="username">Username</label><p></p></td>
-                        <td><input type="text" class="signup-elements" name="uname" id="uname" placeholder="User-name" title="Please Enter in format like: user_11" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" required>
-                        </td> 
-                    </tr>
-                    <tr>
-                        <td><label for="fullname">Full-Name</label></td>
-                        <td><input type="text" class="signup-elements nameclass" name="fname" id="fname" placeholder="Full-name" required>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td> <label for="mobile">Mobile No</label><p></p></td>
-                        <td> <input type="number" class="mobile signup-elements" name="mobile" id="mobile" placeholder="Mobile (10 digits)" required>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><label for="password">Password</label><p></p></td>
-                        <td> <input type="password" class="signup-elements" name="password" id="password" placeholder="Password" required></td>
-                    </tr>
-                    <tr>
-                        <td><label for="re-password">Re-Password</label><p></p></td>
-                        <td><input type="password" class="signup-elements" name="repassword" id="re-password" placeholder="Re-password" required></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2"> <input type="submit" name="register" value="Register" class="signup-elements-submit"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2"><a href="login.php" id="signup-elements-a">Login</a></td>
-                    </tr>
-                </table>
-           
-        </form>
+            <form action=""  method="POST">
+            
+                    <table id="reg-form">
+                        <!-- <tr>
+                            <td colspan="2"><img src=" images/logo.png" height="100px" width="100px"></td>
+                        </tr> -->
+                        <tr>
+                            <td colspan="2"> <h2>Sign-Up</h2>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="username">Username</label><p></p></td>
+                            <td><input type="text" class="signup-elements" name="uname" id="uname" placeholder="User-name" title="Please Enter in format like: user_11" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" required>
+                            </td> 
+                        </tr>
+                        <tr>
+                            <td><label for="fullname">Full-Name</label></td>
+                            <td><input type="text" class="signup-elements nameclass" name="fname" id="fname" placeholder="Full-name" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> <label for="mobile">Mobile No</label><p></p></td>
+                            <td> <input type="number" class="mobile signup-elements" name="mobile" id="mobile" placeholder="Mobile (10 digits)" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="password">Password</label><p></p></td>
+                            <td> <input type="password" class="signup-elements" name="password" id="password" placeholder="Password" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="re-password">Re-Password</label><p></p></td>
+                            <td><input type="password" class="signup-elements" name="repassword" id="re-password" placeholder="Re-password" required></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"> <input type="submit" name="register" value="Register" class="signup-elements-submit"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><a href="login.php" id="signup-elements-a">Login</a></td>
+                        </tr>
+    </table>
+            
+            </form>
         </div>
-        <script src="script/jquery-3.5.1.min.js"></script>
-        <script src="script/cabscript.js"></script>
-        <?php require "footer.php"?>
+
+        
+
+      

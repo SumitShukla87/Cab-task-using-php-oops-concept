@@ -34,15 +34,15 @@ require "../class/Rides.php";
        <tr>
         <td><?php echo $ride['MONTHNAME']?></td>
         
-        <td><?php echo $ride['sum(total_fare)']?>rs.</td>
+        <td>Rs. <?php echo $ride['sum(total_fare)']?></td>
         </tr>
        <?php }?>
        <tr>
             <td>
             <h2>Total income </h2>
             </td>
-            <td>
-            <?php    echo $total['INCOME'];?>rs.
+            <td><h2>Rs.
+            <?php    echo $total['INCOME'];?></h2>
             </td>
         </tr>
 
