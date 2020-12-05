@@ -11,7 +11,6 @@
  * @link     https://localhost/
  */
 require "header.php" ;
-
 require "class/Dbcon.php";
 require "class/Rides.php";
 if (!isset($_SESSION['userdata'])) {
