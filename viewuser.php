@@ -16,8 +16,8 @@
     require "class/Dbcon.php";
 ?>
 <?php if (!isset($_SESSION['userdata'])) {
-        unset($_SESSION);
-        header("location:login.php");
+    unset($_SESSION);
+    header("location:login.php");
 } else {
     $name = $_SESSION['userdata']['username'];
     $db = new Dbcon();
@@ -28,11 +28,15 @@
         $uname = $total_data['user_name'];
         $name = isset($_POST['fname'])?$_POST['fname']:'';
         $mobile = isset($_POST['mobile'])?$_POST['mobile']:'';
-        $update_user = new Users();
-        $update_user->update($uname, $name, $mobile, $db->conn);
-    }
-    
-    ?>
+        if ($name==""||$mobile=="") {
+            echo"<script>alert('Field's can Not be Blank')</script>";
+        } elseif (strlen($mobile)<10) {
+            echo"<script>alert('Please Enter min 10 digits!')</script>";
+        } else {
+            $update_user = new Users();
+            $update_user->update($uname, $name, $mobile, $db->conn);
+        }
+    } ?>
     
 <form action="" method="POST">
     <table id="viewuser">
@@ -78,7 +82,7 @@
             </td>
             <?php if (isset($_POST['edit'])) { ?>
             <td>
-               <input type="number" name="mobile" class="mobile"  value="<?php echo $total_data['mobile'];?>" required>
+               <input type="number" name="mobile" class="mobile" value="<?php echo $total_data['mobile'];?>" required>
             </td>   
             <?php } else {?>
             <td>

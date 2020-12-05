@@ -32,6 +32,11 @@ if (isset($_POST['register'])) {
     $db = new Dbcon();
     $signup_data = new Users();
     $check = new Users();
+    if ($name=="" || $username==" " || $mobile==" " || $password=="" || $repassword=="") {
+        $errors[] = array('input'=>'form','msg'=>'Field can not be blank');
+    } elseif (strlen($mobile)<10) {
+        $errors[] = array('input'=>'form','msg'=>'Mobile No min contain 10 digits');
+    } 
 
     $total_data =$check->viewdata($db->conn);
     foreach ($total_data as $key=>$value) {
@@ -115,6 +120,17 @@ if (isset($_POST['register'])) {
             
             </form>
         </div>
+        <footer>
+            <div class="right-footer1">
+                <p>Copyright 2020 © <span><a href="https://cedcoss.com/" class="text-warning">CEDCOSS
+                            TECHNOLOGIES</span></a> </p>
+
+            </div>
+</footer>
+    <script src="script/jquery-3.5.1.min.js"></script>
+<script src="script/cabscript.js"></script>
+</body>
+</html>
 
         
 

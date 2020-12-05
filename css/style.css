@@ -381,3 +381,13 @@ color: rgb(255, 145, 0);}
    position: relative;
 
  }
+ .right-footer1{ 
+  right: 0;
+  float: right;
+  position: relative;
+  bottom: 0;
+}
+.right-footer1 a{
+  text-decoration: none;
+  color: chocolate;
+}
