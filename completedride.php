@@ -41,7 +41,7 @@ if (!isset($_SESSION['userdata'])) {
          </tr>
          <tr>
                     <th colspan="9">
-                                   <!-- showing the soritng -->
+                               
                          <ul>
                               <li>
                                    <div class="dropdown1">
@@ -59,7 +59,8 @@ if (!isset($_SESSION['userdata'])) {
                </tr>
                <tr>
                     <th colspan="9">
-                         <!-- <ul>           Showing the filltering -->
+                         <ul>       
+                                  <!-- Showing the filltering -->
                               <li>
                                    <div class="dropdown1">
                                         <a href="completedride.php" class="dropbtn approve-css">Filter  Data</a>

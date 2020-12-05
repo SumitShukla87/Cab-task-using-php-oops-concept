@@ -307,10 +307,24 @@ VALUES ('".$date."','".$pickup."','".$drop."','".$cab."','".$distance."','".$lug
     /**
      * Fucntion to show a user his expanses
      */
-    public function spent($id, $name, $conn)
+    public function spent($id, $filterby, $conn)
     {
         $a=array();
-        $sql = "SELECT * from `tbl_ride` WHERE `customer_user_id`='".$id."' AND `status` = 2  ORDER BY CAST($name AS UNSIGNED ) ASC";
+        if ($filterby == "fareasc") {
+            $sql = "SELECT * from `tbl_ride` WHERE `customer_user_id`='".$id."' AND `status` = 2 ORDER BY CAST(`total_fare` AS UNSIGNED ) ASC";
+        } elseif ($filterby == "faredesc") {
+            $sql = "SELECT * from `tbl_ride` WHERE `customer_user_id`='".$id."' AND `status` = 2 ORDER BY CAST(`total_fare` AS UNSIGNED ) DESC";
+        } elseif ($filterby == "dateasc") {
+            $sql = "SELECT * from `tbl_ride` WHERE `customer_user_id`='".$id."' AND `status` = 2 ORDER BY CAST(`ride_date` AS UNSIGNED ) ASC";
+        } elseif ($filterby == "datedesc") {
+            $sql = "SELECT * from `tbl_ride` WHERE `customer_user_id`='".$id."' AND `status` = 2 ORDER BY CAST(`ride_date` AS UNSIGNED ) DESC";
+        } elseif ($filterby == "week") {
+            $sql = "SELECT * from `tbl_ride` WHERE `customer_user_id`='".$id."' AND `status` = 2 Where  `ride_date`> DATE_SUB(curdate(),INTERVAL 1 WEEK)";
+        } elseif ($filterby == "month") {
+            $sql = "SELECT * from `tbl_ride` WHERE `customer_user_id`='".$id."' AND `status` = 2 Where `ride_date`> DATE_SUB(curdate(),INTERVAL 1 MONTH)";
+        } else {
+            $sql = "SELECT * from `tbl_ride` WHERE `customer_user_id`='".$id."' AND `status` = 2";
+        }
         $result =$conn->query($sql);
         while ($row = $result->fetch_assoc()) {
             array_push($a, $row);

@@ -32,11 +32,6 @@
         $update_user->update($uname, $name, $mobile, $db->conn);
     }
     
-    if (isset($_POST['cancel'])) {
-        header("location:viewuser.php");
-    }
-    
-    
     ?>
     
 <form action="" method="POST">
@@ -103,7 +98,7 @@
         <tr>
             <?php if (isset($_POST['edit'])) { ?>
             <td><input type="submit" class="btn-submit" name="update" Value="Update"></td>
-            <td><input type="submit" class="btn-submit" name="cancel" Value="Cancel"></td>
+            <td><a href="viewuser.php" class="approve-css">Cancel</a></td>
             <?php } else {?>
                 <td colspan="2"><input type="submit" class="btn-submit" name="edit" Value="Edit"></td>
             <?php }
