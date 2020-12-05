@@ -14,6 +14,9 @@ require "class/Dbcon.php";
 require "header.php";
 require_once "class/Users.php";
 $errors = array();
+if (isset($_SESSION['userdata']) || isset($_SESSION['admin'])) {
+    header("location:logout.php");
+}
 ?>
 
 <?php
