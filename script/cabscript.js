@@ -43,7 +43,7 @@ $(document).ready(function () {
         this.value = this.value.replace(/[^0-9]/g,'');
     });
     $('.nameclass').keydown(function (e) {
-        if (e.ctrlKey || e.altKey || e.shiftKey) {
+        if (e.ctrlKey || e.altKey) {
             e.preventDefault();
         } else {
             var key = e.keyCode;
