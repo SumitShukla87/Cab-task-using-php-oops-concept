@@ -84,6 +84,9 @@ require "../class/Rides.php";
 </table>
     
     </div>
+    <div id="print">
+     <input type="button" onclick="printDiv('invoice')" value="Print Invoice" style="margin-left:50%"/>
+     </div>
     <?php require "footer.php"; ?> 
 </div>
 

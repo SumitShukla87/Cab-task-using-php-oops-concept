@@ -43,7 +43,7 @@ $(document).ready(function () {
         this.value = this.value.replace(/[^0-9]/g,'');
     });
     $('.nameclass').keydown(function (e) {
-        if (e.ctrlKey || e.altKey) {
+        if (e.ctrlKey || e.altKey || e.shiftKey) {
             e.preventDefault();
         } else {
             var key = e.keyCode;
@@ -57,6 +57,10 @@ $(document).ready(function () {
     });
     $("#lname").keyup(function() {
         $(this).val($(this).val().replace(/\s/g, ""));
+    });
+
+    $("#fname").keyup(function() {
+        $(this).val($(this).val().replace(/  +/g, ' '));
     });
 
 $(document).on('keypress','.mobile',function(e){
@@ -105,6 +109,16 @@ $(document).on('keypress','.mobile',function(e){
 
     });
 });
+function printDiv(divName) {
+    var printContents = document.getElementById(divName).innerHTML;
+    var originalContents = document.body.innerHTML;
+
+    document.body.innerHTML = printContents;
+
+    window.print();
+
+    document.body.innerHTML = originalContents;
+}
 
 
 

@@ -53,7 +53,7 @@ if (!isset($_SESSION['userdata'])) {
                          </li>
                     </ul>
                </th>
-               <th colspan="2">
+               <th colspan="3">
                     <ul>       
                               <!-- Showing the filltering -->
                          <li>
@@ -81,6 +81,7 @@ if (!isset($_SESSION['userdata'])) {
         <th>Booking-Date</th>
         <th>Cab-Type</th>
         <th>Fare</th>
+        <th>See-Invoice</th>
 
         <!-- fetch the value from database using for each -->
 
@@ -132,6 +133,9 @@ if (!isset($_SESSION['userdata'])) {
                    <td>
                     <?php echo $value['total_fare'];?> rs
                    </td>
+                   <td>
+                        <a href="viewinvoice.php?id=<?php echo $value['ride_id']?>" class="approve-css">Print Invoice</a>
+                    </td>
                    
                </tr>
         <?php }

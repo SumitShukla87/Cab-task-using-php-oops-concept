@@ -50,7 +50,6 @@
   position: fixed;
   background-color: #333;
   height: 100%;
-  overflow: auto;
 }
 
 .sidebar a {
@@ -167,11 +166,10 @@ header{
   display: block;
 }
 #invoice {
-  margin-left: 20%;
-  margin-top: 10%;
+  margin-left: 35%;
+  margin-top: 5%;
   width: 30%;
 }
-
 /* ****D*/
 .dropdown1-content1 {
   display: none;
