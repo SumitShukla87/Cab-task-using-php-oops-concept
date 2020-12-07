@@ -14,8 +14,9 @@
 session_start();
 if ($_SESSION['admin']== "") {
     header("location:../login.php");
-}
+}?>
 
+<?php
 require "sidebar.php";
 require "header.php" ;
 require "../class/Location.php";
@@ -24,6 +25,7 @@ $db = new Dbcon();
 $data = new Location();
 $errors = array();
 ?>
+
 <div id="wrapper">
 <?php
 
@@ -82,15 +84,13 @@ $locations =$data->viewlocation($name, $db->conn);
 
 </div>
     <form action="" method="GET">
-        <table class='view-table-css'>
-        <tr>
-            
-        </tr>
+    <div id="maindiv">
+        <table>
     </form>    
 
 
 
-            <th colspan="3">
+            <th colspan="4">
             <?php if (isset($_POST['edit'])) { ?>
                 <h2> Update Details of Location Table </h2>
                  
@@ -99,10 +99,10 @@ $locations =$data->viewlocation($name, $db->conn);
                 <h2> Details of Location table </h2>
             </th>
             <?php }?>
-            <th >
-                <a href="addlocation.php" class="delete-css">Add New Location</a>
+            <th>
+                <a href="addlocation.php" class="delete-css">Add Location</a>
         </th>
-        <th >
+        <th colspan="2">
                 <ul>
                     <li class="dropdown">
                         <a href="viewlocation.php?value=`id`"class="dropbtn approve-css">Sort Data</a>
@@ -127,6 +127,10 @@ $locations =$data->viewlocation($name, $db->conn);
             </th>
             <th>
                 Is Avilable
+            </th>
+
+            <th>
+                Delete Location
             </th>
 
             <?php if (isset($_POST['edit'])) { ?>
@@ -170,6 +174,7 @@ foreach ($locations as $key =>$udetails) {
                      
                     <?php } ?>
                     </td>
+
                     <td>
                     
                     <?php
@@ -180,6 +185,9 @@ foreach ($locations as $key =>$udetails) {
                     } elseif ($status == 0) {
                         echo "Not Avilable";
                     } ?>
+                    </td>
+                    <td>
+                    <a href="deletelocation.php?id=<?php echo $udetails['id']?>" onclick="return confirm('Do you Want to Delete the Location!!!')" class="delete-css">Delete Location</a>
                     </td>
                     <?php  if (isset($_POST['edit']) && $udetails['id'] == $_POST['id']) { ?>
                     <?php if ($status==0) {
@@ -213,6 +221,18 @@ foreach ($locations as $key =>$udetails) {
 } ?>
         
     </table> 
-    <?php require "footer.php"; ?>
+    </div>
+    
+    </div>    
+    <div id="footer">          
+            
+                <p>Copyright 2020 © <a href="https://cedcoss.com/" class="text-warning">CEDCOSS TECHNOLOGIES</a> </p>
+
+            
 </div>
+    <script src="../script/jquery-3.5.1.min.js"></script>
+<script src="../script/cabscript.js"></script>
+</body>
+</html>
+
 

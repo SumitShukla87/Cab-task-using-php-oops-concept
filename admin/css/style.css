@@ -207,6 +207,10 @@ header{
   background-color: rgb(194, 175, 7);
   color: black;
 } 
+#maindiv{
+  position: relative;
+  overflow: hidden;
+}
 
 .icon{
   font-size:30px;
@@ -232,4 +236,17 @@ input::-webkit-inner-spin-button {
 
 input[type="number"] {
   -moz-appearance:textfield;
+}
+#footer {
+  
+  float: right;
+  margin-right: 2%;
+  bottom: 0%;
+  position: relative;
+  display: block;
+}
+
+#footer a{
+  text-decoration: none;
+  color: chocolate;
 }

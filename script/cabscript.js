@@ -15,6 +15,7 @@ $(document).ready(function () {
             $("#luggage").focus();
         }
     });
+
     $("#pick").change(function () {
         $("#res").val(0);
         $("#res").hide();

@@ -17,11 +17,12 @@ if ($_SESSION['admin']== "") {
 }
 require "header.php";
 require "../class/Dbcon.php";
-require "../class/Users.php";
+require "../class/Location.php";
 
         $id = $_REQUEST['id'];
+        echo $id;
         $db = new Dbcon();
-        $deluser = new Users();
-        $deluser->delreq($id, $db->conn);    
+        $del = new Location();
+        $del->delreq($id, $db->conn);    
     
 ?>

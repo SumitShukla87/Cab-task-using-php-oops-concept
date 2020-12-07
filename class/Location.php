@@ -145,5 +145,19 @@ class Location
             }
             return $a;
         }
+    } 
+    /**Method to delete the location */
+    /**
+     *  Function for Delete the Request for login of user
+    */
+    public function delreq($id, $conn)
+    {
+        $sql = "DELETE FROM `tbl_location` where`id`='".$id."'";
+
+        if ($conn->query($sql) == true) {
+            header("location:viewlocation.php");
+        } else {
+            echo $conn->error;
+        }
     }
 }

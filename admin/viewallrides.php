@@ -55,7 +55,6 @@ $viewdata = new Rides();
                             <a  href="viewallrides.php?filter=total_distanceasc" class="dropdown-content1">By Distance(ASC)</a>
                             <a  href="viewallrides.php?filter=faredesc" class="dropdown-content1">By Fare(DESC)</a>
                             <a  href="viewallrides.php?filter=total_distancedesc" class="dropdown-content1">By Distance(DESC)</a>
-                        
                         </div>
                     </li>
                 </ul>
@@ -81,8 +80,8 @@ $viewdata = new Rides();
             <th>Total Distance</th>
             <th>Luggage</th>
             <th>Fare</th>
+            <th>Cab-Type</th>
             <th>Status</th>
-            <th>Delete Ride</th>
 
             
         </tr>
@@ -99,9 +98,24 @@ foreach ($sort as $key =>$ride) {
                     <td><?php echo $ride['total_distance']?>km</td>
                     <td><?php echo $ride['luggage']?>kg</td>
                     <td>
-                        <?php echo $ride['total_fare'];        
-                        ?> rs.
+                        Rs. <?php echo $ride['total_fare'];        
+                        ?>
                </td>
+               <td>
+                   <?php $car = $ride['cab_type'];
+                        
+                    if ($car == 1) {
+                         echo "Ced Micro";
+                    } elseif ($car == 2) {
+                         echo "Ced Mini";
+                    } elseif ($car == 3) {
+                         echo "Ced Royal";
+                    } else {
+                         echo "Ced Suv";
+                    }                       
+                        
+                        ?>
+                   </td>
                     <td><?php $status = $ride['status'];
 
                     if ($status==1) {
@@ -114,10 +128,7 @@ foreach ($sort as $key =>$ride) {
                     }   
                     ?>
                     </td>
-                    <td>
-                        <a href="deleteride.php?id=<?php echo $ride['ride_id']?>" onclick="return  confirm('Do You Want to Delete The Ride??')" class="delete-css">Delete Ride</a>
-                        
-                    </td>
+                    
                    
               </tr>
 <?php }

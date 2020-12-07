@@ -71,7 +71,7 @@ require "../class/Users.php";
         <th>Name</th>
         <th>Request Date</th>
         <th>Approve Request</th>
-        <th>Delete Request</th></tr>
+        <th>Cancel Request</th></tr>
 <?php
 foreach ($details as $key =>$udetails) {?>
                 <tr>
@@ -80,7 +80,7 @@ foreach ($details as $key =>$udetails) {?>
              <td><?php echo $udetails['name']?></td>      
              <td><?php echo $udetails['dateofsignup']?></td>  
               <td><a href="approverequest.php?id=<?php echo $udetails['user_id']?>" class="approve-css" onclick="return  confirm('Do You Want to Approve the Request??')">Approve Request</a></td>
-            <td><a href="deleterequest.php?id=<?php echo $udetails['user_id']?>" class="delete-css" onclick="return  confirm('Do You Want to Delete The Request??')">Delete Request</a></td>
+            <td><a href="deleterequest.php?id=<?php echo $udetails['user_id']?>" class="delete-css" onclick="return  confirm('Do You Want to Cancel The Request??')">Cancel Request</a></td>
             </tr>
 <?php }
                 

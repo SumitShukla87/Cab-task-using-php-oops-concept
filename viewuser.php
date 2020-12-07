@@ -101,8 +101,8 @@
         </tr>
         <tr>
             <?php if (isset($_POST['edit'])) { ?>
-            <td><input type="submit" class="btn-submit" name="update" Value="Update"></td>
-            <td><a href="viewuser.php" class="approve-css">Cancel</a></td>
+            <td><input type="submit" class="btn-submit" name="update" Value="Update" onclick="return alert('Your Information Has Been updated!!');"></td>
+            <td><a href="viewuser.php" class="approve-css" onclick="alert('Sorry You have Cancelled!!');">Cancel</a></td>
             <?php } else {?>
                 <td colspan="2"><input type="submit" class="btn-submit" name="edit" Value="Edit"></td>
             <?php }
